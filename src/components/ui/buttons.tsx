@@ -13,7 +13,7 @@ export function PrimaryButton({
   return (
     <Link
       href={href}
-      className={`bg-secondary hover:bg-secondary/90 inline-block rounded-md px-6 py-3 font-bold text-white transition-colors ${className}`}
+      className={`bg-primary hover:bg-primary/90 inline-block rounded-md px-6 py-3 font-bold text-white transition-colors ${className}`}
     >
       {children}
     </Link>

@@ -9,8 +9,14 @@ import Footer from "@/components/sections/footer";
 export default function Home() {
   return (
     <>
+      <a
+        href="#contenido"
+        className="focus:bg-secondary sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:rounded-md focus:p-3 focus:text-white"
+      >
+        Saltar al contenido
+      </a>
       <Navbar />
-      <main className="flex-1">
+      <main id="contenido" tabIndex={-1} className="flex-1">
         <Hero />
         <Benefits />
         <SpeciesBenefits />

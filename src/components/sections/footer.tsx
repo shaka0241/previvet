@@ -1,8 +1,11 @@
-import { footerCta } from "@/content/data";
-import { siteConfig } from "@/content/data";
+import { footerCta, siteConfig } from "@/content/data";
+import { WhatsAppIcon } from "@/components/ui/icons";
+import { whatsappUrl } from "@/lib/site";
 import ContactForm from "./contact-form";
 
 export default function Footer() {
+  const waHref = whatsappUrl();
+
   return (
     <footer id="contacto" className="bg-secondary scroll-mt-16 text-white">
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-12 px-4 py-20 lg:grid-cols-2">
@@ -14,6 +17,17 @@ export default function Footer() {
             Déjanos tus datos y un asesor de {siteConfig.name} te contactará con
             una cotización personalizada.
           </p>
+          {waHref && (
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary hover:bg-primary/90 inline-flex w-fit items-center gap-2 rounded-md px-5 py-3 font-bold transition-colors"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+              Escríbenos por WhatsApp
+            </a>
+          )}
         </div>
         <div className="rounded-xl bg-white p-6 text-gray-700 shadow-lg">
           <ContactForm />

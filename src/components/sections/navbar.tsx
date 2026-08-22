@@ -3,9 +3,12 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/content/data";
+import { WhatsAppIcon } from "@/components/ui/icons";
+import { whatsappUrl } from "@/lib/site";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const waHref = whatsappUrl();
 
   useEffect(() => {
     if (!open) return;
@@ -43,6 +46,17 @@ export default function Navbar() {
           >
             Cotizar
           </a>
+          {waHref && (
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escríbenos por WhatsApp"
+              className="text-primary hover:text-primary/80 transition-colors"
+            >
+              <WhatsAppIcon className="h-6 w-6" />
+            </a>
+          )}
         </div>
 
         <button
@@ -85,6 +99,17 @@ export default function Navbar() {
           >
             Cotizar
           </a>
+          {waHref && (
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary inline-flex items-center gap-2 py-2 font-medium"
+            >
+              <WhatsAppIcon className="text-primary h-5 w-5" />
+              WhatsApp
+            </a>
+          )}
         </div>
       )}
     </nav>

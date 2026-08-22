@@ -41,11 +41,11 @@ Los 5 agentes coinciden en 4 problemas que cruzan disciplinas:
 - [x] Optimizar logo a WebP (`logo-nav.webp` 96×96, 1.3 KB; `logo-512.jpg` para OG, 19 KB)
 - [x] Prettier + workflow CI mínimo (`format:check → lint → tsc → build`)
 
-### Fase 1 — Conversión (1 día)
-- [ ] CTA hero en verde primario + segundo CTA convertido a enlace `wa.me` real (número definido en `siteConfig`)
-- [ ] Mismo enlace WhatsApp en navbar, footer columna de contacto y mensaje de error del formulario
-- [ ] Panel de confirmación post-envío (check animado + SLA 24 h + botón WhatsApp) con `role="status"`
-- [ ] Skip link + `<main id="contenido">`
+### Fase 1 — Conversión (1 día) ✅ Completada (2026-08-22)
+- [x] CTA hero en verde primario + segundo CTA convertido a enlace `wa.me` real (número vía `NEXT_PUBLIC_WHATSAPP_NUMBER`, helper en `src/lib/site.ts`; si no está configurado, cae al fallback `#contacto`)
+- [x] Mismo enlace WhatsApp en navbar (ícono desktop + fila móvil), footer columna de contacto y mensaje de error del formulario
+- [x] Panel de confirmación post-envío (check animado + SLA 24 h + botón WhatsApp) con `role="status"`; spinner + `min-w` en submit, micro-copy de privacidad, labels visibles y `role="alert"` en error
+- [x] Skip link + `<main id="contenido">`
 
 ### Fase 2 — Indexabilidad y contenido (1 día)
 - [ ] Tabs: renderizar ambos paneles siempre (atributo `hidden`) + patrón APG completo (flechas, `aria-controls`) + `flex-wrap`
