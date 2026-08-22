@@ -1,6 +1,6 @@
-# Previvet — Vetline Nutrition Landing Page
+# Vetline Nutrition — Landing Nutravit ADE3 Plus
 
-Landing page estática para **Nutravit ADE3 Plus**, un núcleo nutricional de alta palatabilidad para bovinos y porcinos, desarrollada por Vetline Nutrition.
+Landing page estática para **Nutravit ADE3 Plus**, un núcleo nutricional de alta palatabilidad para bovinos y porcinos, desarrollada para **Vetline Nutrition**. Nombre interno del repositorio: `previvet`.
 
 ## Stack Tecnológico
 

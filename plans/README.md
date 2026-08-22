@@ -1,4 +1,4 @@
-# Plan de mejoras — Previvet (Nutravit ADE3 Plus)
+# Plan de mejoras — Vetline Nutrition · Nutravit ADE3 Plus (repo `previvet`)
 
 > Informe generado por el comité de 5 agentes especialistas el 2026-08-22.
 > Cada informe completo vive en su propio archivo de esta carpeta.
