@@ -4,6 +4,15 @@ Este documento contiene el texto (copywriting) adaptado para encajar en seccione
 
 ---
 
+## 0. Navegación (Navbar)
+*Sugerencia UI: Una barra de navegación fija (`fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm`) que contenga el logo de la marca.*
+
+*   **Logo:** Etiqueta `<img src="/images/previvetlogo.jpeg" alt="Vetline Nutrition Logo" class="h-10 w-auto rounded-md">`
+*   **Enlaces:** Beneficios, Ciencia, Presentaciones.
+*   **CTA Menú:** Botón con clases `bg-secondary text-white px-4 py-2 rounded-md` - Cotizar
+
+---
+
 ## 1. Cabecera (Hero Section)
 *Sugerencia UI: Usar un fondo difuminado o una imagen de fondo oscurecida (`bg-cover bg-center`). Los botones deben estar estilizados con clases utilitarias de Tailwind.*
 

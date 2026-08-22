@@ -8,6 +8,7 @@ Como Arquitecto de Soluciones, estandarizar la estructura de carpetas desde el d
 vetline-landing/
 ├── public/                 # Archivos estáticos crudos (favicon, robots.txt, sitemap.xml)
 │   ├── images/             # Imágenes estáticas no procesadas por el bundler
+│   │   └── previvetlogo.jpeg # Logo oficial de la marca
 │   └── og-image.jpg        # Imagen para compartir en redes sociales (Open Graph)
 ├── src/
 │   ├── assets/             # Imágenes procesadas, SVGs y fuentes locales

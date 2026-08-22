@@ -38,6 +38,7 @@ Construir el componente con la etiqueta `<details>` nativa de HTML o mediante el
 *   `<details class="group bg-white p-4 rounded-lg shadow-sm border border-gray-100">`
 *   Animar la apertura mediante clases utilitarias y transiciones en el ícono del sumario.
 
-## 4. Dirección de Fotografía
+## 4. Dirección de Fotografía y Branding
+*   **Logo de la Marca:** El proyecto cuenta con el logo oficial (`previvetlogo.jpeg`). Se deberá extraer una paleta de colores suplementaria si es necesario o utilizarlo en el `Navbar` (`<nav>`) ajustado con un tamaño máximo (`max-h-12 w-auto`) y bordes redondeados (`rounded-md`) en caso de no contar con una versión en PNG transparente, además de incluir atributos correctos de SEO (`alt="Vetline Nutrition Logo"`).
 *   **Imágenes y Recursos:** Utilizar la etiqueta `<img class="hover:scale-105 transition-transform duration-300">` para integrar un efecto de zoom en las fotos del producto.
 *   Las fotos del ganado (bovinos, lechones) deben ser luminosas, de alta calidad y utilizar clases como `rounded-2xl shadow-lg` para un acabado premium.
