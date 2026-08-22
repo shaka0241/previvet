@@ -13,7 +13,7 @@ export function PrimaryButton({
   return (
     <Link
       href={href}
-      className={`inline-block bg-secondary text-white font-bold py-3 px-6 rounded-md hover:bg-secondary/90 transition-colors ${className}`}
+      className={`bg-secondary hover:bg-secondary/90 inline-block rounded-md px-6 py-3 font-bold text-white transition-colors ${className}`}
     >
       {children}
     </Link>
@@ -32,7 +32,7 @@ export function SecondaryButton({
   return (
     <Link
       href={href}
-      className={`inline-block border-2 border-primary text-primary font-medium py-3 px-6 rounded-md hover:bg-primary/10 transition-colors ${className}`}
+      className={`border-primary text-primary hover:bg-primary/10 inline-block rounded-md border-2 px-6 py-3 font-medium transition-colors ${className}`}
     >
       {children}
     </Link>

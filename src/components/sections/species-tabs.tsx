@@ -9,17 +9,17 @@ export default function SpeciesTabs() {
 
   return (
     <div>
-      <div className="flex justify-center gap-2 mb-8" role="tablist">
+      <div className="mb-8 flex justify-center gap-2" role="tablist">
         {speciesTabs.map((tab) => (
           <button
             key={tab.id}
             role="tab"
             aria-selected={active === tab.id}
             onClick={() => setActive(tab.id)}
-            className={`px-4 py-2 rounded-full transition-colors ${
+            className={`rounded-full px-4 py-2 transition-colors ${
               active === tab.id
                 ? "bg-primary text-white"
-                : "bg-white text-primary border border-primary hover:bg-primary/10"
+                : "text-primary border-primary hover:bg-primary/10 border bg-white"
             }`}
           >
             {tab.label} — <span className="text-sm">{tab.subtitle}</span>
@@ -29,14 +29,14 @@ export default function SpeciesTabs() {
 
       <div
         role="tabpanel"
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+        className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2"
       >
         {current.benefits.map((benefit) => (
           <div
             key={benefit.title}
-            className="bg-white rounded-xl shadow-md p-6 flex flex-col gap-2 border-l-4 border-primary"
+            className="border-primary flex flex-col gap-2 rounded-xl border-l-4 bg-white p-6 shadow-md"
           >
-            <h3 className="font-heading font-bold text-lg text-secondary">
+            <h3 className="font-heading text-secondary text-lg font-bold">
               {benefit.title}
             </h3>
             <p className="text-gray-600">{benefit.description}</p>

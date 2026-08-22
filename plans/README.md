@@ -33,13 +33,13 @@ Los 5 agentes coinciden en 4 problemas que cruzan disciplinas:
 
 ## Plan de ejecución sugerido (consenso del comité)
 
-### Fase 0 — Fundación (½ día)
-- [ ] Oscurecer token `--color-primary` a ~`#0a7f38` en `globals.css` (arregla 6 fallos WCAG y desbloquea el CTA verde del hero)
-- [ ] Añadir favicon/íconos (`src/app/favicon.ico`, `icon.png`, `apple-icon.png`), `sitemap.ts` y `robots.ts`
-- [ ] Regla global `:focus-visible` en `globals.css`
-- [ ] Eliminar los 5 SVGs de plantilla (`public/*.svg`)
-- [ ] Optimizar logo a WebP 96×96 / 512×512 (<5 KB)
-- [ ] Prettier + workflow CI mínimo (`lint → tsc → build`)
+### Fase 0 — Fundación (½ día) ✅ Completada (2026-08-22)
+- [x] Oscurecer token `--color-primary` a `#0a7f38` en `globals.css` (arregla 6 fallos WCAG y desbloquea el CTA verde del hero) — *el pre-título del hero pasó a `text-green-400` para no perder contraste sobre el navy*
+- [x] Añadir favicon/íconos (`src/app/favicon.ico`, `icon.png`, `apple-icon.png`), `sitemap.ts` y `robots.ts`
+- [x] Regla global `:focus-visible` en `globals.css`
+- [x] Eliminar los 5 SVGs de plantilla (`public/*.svg`)
+- [x] Optimizar logo a WebP (`logo-nav.webp` 96×96, 1.3 KB; `logo-512.jpg` para OG, 19 KB)
+- [x] Prettier + workflow CI mínimo (`format:check → lint → tsc → build`)
 
 ### Fase 1 — Conversión (1 día)
 - [ ] CTA hero en verde primario + segundo CTA convertido a enlace `wa.me` real (número definido en `siteConfig`)

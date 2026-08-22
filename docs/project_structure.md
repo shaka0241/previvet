@@ -7,18 +7,20 @@ Este documento refleja la estructura real del proyecto **Previvet / Vetline Nutr
 ```text
 previvet/
 ├── public/                          # Archivos estáticos servidos tal cual
-│   ├── images/
-│   │   └── previvetlogo.jpeg        # Logo oficial de la marca
-│   ├── file.svg                     # Íconos SVG por defecto de Next.js
-│   ├── globe.svg
-│   ├── next.svg
-│   ├── vercel.svg
-│   └── window.svg
+│   └── images/
+│       ├── previvetlogo.jpeg        # Logo oficial (master, 1080×1080)
+│       ├── logo-nav.webp            # Logo optimizado para navbar (96×96)
+│       └── logo-512.jpg             # Logo optimizado para Open Graph (512×512)
 ├── src/
 │   ├── app/                         # App Router de Next.js 16
 │   │   ├── globals.css              # Estilos globales + tokens Tailwind v4 (@theme inline)
 │   │   ├── layout.tsx               # Root Layout (fuentes, metadata, JSON-LD)
-│   │   └── page.tsx                 # Página principal — ensambla todas las secciones
+│   │   ├── page.tsx                 # Página principal — ensambla todas las secciones
+│   │   ├── sitemap.ts               # Genera /sitemap.xml en el build estático
+│   │   ├── robots.ts                # Genera /robots.txt en el build estático
+│   │   ├── favicon.ico              # Favicon (16/32/48 px)
+│   │   ├── icon.png                 # Ícono moderno 512×512
+│   │   └── apple-icon.png           # Ícono Apple Touch 180×180
 │   ├── components/
 │   │   ├── sections/                # Secciones completas de la landing
 │   │   │   ├── navbar.tsx           # Barra de navegación fija con menú móvil
@@ -30,10 +32,9 @@ previvet/
 │   │   │   ├── presentations.tsx    # Presentación y dosificación
 │   │   │   ├── contact-form.tsx     # Formulario Web3Forms + Cloudflare Turnstile
 │   │   │   └── footer.tsx           # Footer con CTA y formulario de contacto
-│   │   ├── ui/                      # Componentes base reutilizables
-│   │   │   ├── benefit-card.tsx     # Tarjeta de beneficio con ícono SVG inline
-│   │   │   └── buttons.tsx          # PrimaryButton y SecondaryButton (wrappers de Link)
-│   │   └── seo/                     # (vacío, reservado para componentes SEO futuros)
+│   │   └── ui/                      # Componentes base reutilizables
+│   │       ├── benefit-card.tsx     # Tarjeta de beneficio con ícono SVG inline
+│   │       └── buttons.tsx          # PrimaryButton y SecondaryButton (wrappers de Link)
 │   ├── content/
 │   │   └── data.ts                  # Todo el contenido textual (copy) centralizado
 │   └── types/
@@ -53,15 +54,15 @@ previvet/
 
 ## 2. Convenciones Clave
 
-| Aspecto                 | Decisión                                                              |
-| ----------------------- | --------------------------------------------------------------------- |
-| **Framework**           | Next.js 16 (App Router)                                              |
-| **Modo de salida**      | `output: "export"` — genera archivos estáticos en `/out`              |
-| **Estilos**             | Tailwind CSS v4 vía `@tailwindcss/postcss` + `@theme inline`         |
-| **Fuentes**             | `next/font/google`: Inter (body) y Montserrat (headings)             |
-| **Contenido**           | Centralizado en `src/content/data.ts` (no CMS)                       |
-| **Tipado**              | Interfaces en `src/types/index.ts`                                    |
-| **Formularios**         | Web3Forms (API) + Cloudflare Turnstile (anti-spam)                    |
-| **SEO**                 | `metadata` export en layout + JSON-LD (`Product` schema)             |
-| **Componentes client**  | `"use client"` solo donde hay estado: `navbar.tsx`, `species-tabs.tsx`, `contact-form.tsx` |
-| **Path alias**          | `@/*` → `./src/*`                                                     |
+| Aspecto                | Decisión                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------ |
+| **Framework**          | Next.js 16 (App Router)                                                                    |
+| **Modo de salida**     | `output: "export"` — genera archivos estáticos en `/out`                                   |
+| **Estilos**            | Tailwind CSS v4 vía `@tailwindcss/postcss` + `@theme inline`                               |
+| **Fuentes**            | `next/font/google`: Inter (body) y Montserrat (headings)                                   |
+| **Contenido**          | Centralizado en `src/content/data.ts` (no CMS)                                             |
+| **Tipado**             | Interfaces en `src/types/index.ts`                                                         |
+| **Formularios**        | Web3Forms (API) + Cloudflare Turnstile (anti-spam)                                         |
+| **SEO**                | `metadata` export en layout + JSON-LD (`Product` schema)                                   |
+| **Componentes client** | `"use client"` solo donde hay estado: `navbar.tsx`, `species-tabs.tsx`, `contact-form.tsx` |
+| **Path alias**         | `@/*` → `./src/*`                                                                          |

@@ -15,8 +15,8 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <nav className="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+    <nav className="fixed top-0 z-50 w-full bg-white/90 shadow-sm backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <a href="#" className="flex items-center gap-2">
           <Image
             src={siteConfig.logo}
@@ -27,19 +27,19 @@ export default function Navbar() {
           />
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-8 md:flex">
           {siteConfig.navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-secondary font-medium hover:text-primary transition-colors"
+              className="text-secondary hover:text-primary font-medium transition-colors"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contacto"
-            className="bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary/90 transition-colors"
+            className="bg-secondary hover:bg-secondary/90 rounded-md px-4 py-2 text-white transition-colors"
           >
             Cotizar
           </a>
@@ -50,9 +50,15 @@ export default function Navbar() {
           aria-label="Abrir menú"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden p-2 text-secondary"
+          className="text-secondary p-2 md:hidden"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
             {open ? (
               <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -63,15 +69,19 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 pb-4 flex flex-col gap-3">
+        <div className="flex flex-col gap-3 border-t border-gray-100 bg-white px-4 pb-4 md:hidden">
           {siteConfig.navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-secondary font-medium py-2">
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-secondary py-2 font-medium"
+            >
               {link.label}
             </a>
           ))}
           <a
             href="#contacto"
-            className="bg-secondary text-white px-4 py-2 rounded-md text-center"
+            className="bg-secondary rounded-md px-4 py-2 text-center text-white"
           >
             Cotizar
           </a>

@@ -4,10 +4,10 @@ import ContactForm from "./contact-form";
 
 export default function Footer() {
   return (
-    <footer id="contacto" className="bg-secondary text-white scroll-mt-16">
-      <div className="max-w-4xl mx-auto py-20 px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <footer id="contacto" className="bg-secondary scroll-mt-16 text-white">
+      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-12 px-4 py-20 lg:grid-cols-2">
         <div className="flex flex-col justify-center gap-4">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl leading-tight">
+          <h2 className="font-heading text-3xl leading-tight font-bold md:text-4xl">
             {footerCta.title}
           </h2>
           <p className="text-gray-200">
@@ -15,13 +15,14 @@ export default function Footer() {
             una cotización personalizada.
           </p>
         </div>
-        <div className="bg-white text-gray-700 rounded-xl shadow-lg p-6">
+        <div className="rounded-xl bg-white p-6 text-gray-700 shadow-lg">
           <ContactForm />
         </div>
       </div>
       <div className="border-t border-white/10">
-        <p className="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-300 flex items-center gap-2">
-          © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.
+        <p className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-6 text-sm text-gray-300">
+          © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos
+          reservados.
         </p>
       </div>
     </footer>
