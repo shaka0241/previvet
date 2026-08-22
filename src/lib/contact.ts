@@ -17,8 +17,12 @@ function field(entries: Record<string, FormDataEntryValue>, key: string) {
   return typeof value === "string" ? value.trim() : "";
 }
 
-export function parseContactForm(form: HTMLFormElement): ContactFormData {
-  const entries = Object.fromEntries(new FormData(form).entries());
+export function parseContactForm(
+  source: FormData | HTMLFormElement,
+): ContactFormData {
+  const entries = Object.fromEntries(
+    (source instanceof FormData ? source : new FormData(source)).entries(),
+  );
   return {
     name: field(entries, "name"),
     phone: field(entries, "phone"),

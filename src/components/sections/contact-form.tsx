@@ -16,10 +16,12 @@ import { cn } from "@/lib/cn";
 const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
-function FieldError({ message }: { message?: string }) {
+const fieldIds = ["name", "phone", "email", "message"] as const;
+
+function FieldError({ field, message }: { field: string; message?: string }) {
   if (!message) return null;
   return (
-    <p role="alert" className="text-sm text-red-600">
+    <p id={`error-${field}`} role="alert" className="text-sm text-red-600">
       {message}
     </p>
   );
@@ -77,6 +79,11 @@ export default function ContactForm() {
   const inputBase =
     "border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-secondary";
   const labelClasses = "text-sm font-medium text-gray-700";
+
+  const errorList = fieldIds.filter((f) => errors[f]);
+  function describedBy(field: keyof ContactFieldErrors) {
+    return errors[field] ? `error-${field}` : undefined;
+  }
 
   function inputClasses(field: keyof ContactFieldErrors) {
     return cn(inputBase, errors[field] && "border-red-400 focus:ring-red-500");
@@ -144,6 +151,27 @@ export default function ContactForm() {
       >
         <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
 
+        {errorList.length > 0 && (
+          <div
+            role="alert"
+            className="rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-700"
+          >
+            <p className="font-semibold">Revisa los siguientes campos:</p>
+            <ul className="mt-1 list-inside list-disc">
+              {errorList.map((field) => (
+                <li key={field}>
+                  <a
+                    href={`#contact-${field}`}
+                    className="underline hover:text-red-800"
+                  >
+                    {contactForm.labels[field]}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="flex flex-col gap-1">
             <label htmlFor="contact-name" className={labelClasses}>
@@ -156,9 +184,10 @@ export default function ContactForm() {
               autoComplete="name"
               placeholder={contactForm.placeholders.name}
               aria-invalid={Boolean(errors.name)}
+              aria-describedby={describedBy("name")}
               className={inputClasses("name")}
             />
-            <FieldError message={errors.name} />
+            <FieldError field="name" message={errors.name} />
           </div>
           <div className="flex flex-col gap-1">
             <label htmlFor="contact-phone" className={labelClasses}>
@@ -172,9 +201,10 @@ export default function ContactForm() {
               autoComplete="tel"
               placeholder={contactForm.placeholders.phone}
               aria-invalid={Boolean(errors.phone)}
+              aria-describedby={describedBy("phone")}
               className={inputClasses("phone")}
             />
-            <FieldError message={errors.phone} />
+            <FieldError field="phone" message={errors.phone} />
           </div>
         </div>
 
@@ -189,9 +219,10 @@ export default function ContactForm() {
             autoComplete="email"
             placeholder={contactForm.placeholders.email}
             aria-invalid={Boolean(errors.email)}
+            aria-describedby={describedBy("email")}
             className={inputClasses("email")}
           />
-          <FieldError message={errors.email} />
+          <FieldError field="email" message={errors.email} />
         </div>
 
         <div className="flex flex-col gap-1">
@@ -205,9 +236,10 @@ export default function ContactForm() {
             required
             placeholder={contactForm.placeholders.message}
             aria-invalid={Boolean(errors.message)}
+            aria-describedby={describedBy("message")}
             className={inputClasses("message")}
           />
-          <FieldError message={errors.message} />
+          <FieldError field="message" message={errors.message} />
         </div>
 
         {TURNSTILE_SITE_KEY && (

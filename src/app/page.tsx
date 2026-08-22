@@ -1,9 +1,12 @@
 import Navbar from "@/components/sections/navbar";
 import Hero from "@/components/sections/hero";
+import SocialProof from "@/components/sections/social-proof";
 import Benefits from "@/components/sections/benefits";
 import SpeciesBenefits from "@/components/sections/species-benefits";
 import Science from "@/components/sections/science";
 import Presentations from "@/components/sections/presentations";
+import HowToBuy from "@/components/sections/how-to-buy";
+import Faq from "@/components/sections/faq";
 import Footer from "@/components/sections/footer";
 
 export default function Home() {
@@ -18,10 +21,13 @@ export default function Home() {
       <Navbar />
       <main id="contenido" tabIndex={-1} className="flex-1">
         <Hero />
+        <SocialProof />
         <Benefits />
         <SpeciesBenefits />
         <Science />
         <Presentations />
+        <HowToBuy />
+        <Faq />
       </main>
       <Footer />
     </>

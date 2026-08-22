@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
-import { siteConfig } from "@/content/data";
+import { faqItems, siteConfig } from "@/content/data";
 import siteUrl from "@/lib/site";
 
 const inter = Inter({
@@ -82,6 +82,17 @@ const jsonLd = {
       brand: { "@id": `${siteUrl}/#organization` },
       description:
         "Núcleo nutricional de alta palatabilidad con minerales, vitaminas A-D3-E, probióticos y grasa sobrepasante para bovinos y porcinos.",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteUrl}/#faq`,
+      about: { "@id": `${siteUrl}/#product` },
+      inLanguage: "es",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
     },
   ],
 };

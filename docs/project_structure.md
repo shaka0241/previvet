@@ -8,9 +8,9 @@ Este documento refleja la estructura real del proyecto **Vetline Nutrition** (re
 previvet/
 ├── public/                          # Archivos estáticos servidos tal cual
 │   └── images/
-│       ├── previvetlogo.jpeg        # Logo oficial (master, 1080×1080)
 │       ├── logo-nav.webp            # Logo optimizado para navbar (96×96)
-│       └── logo-512.jpg             # Logo optimizado para Open Graph (512×512)
+│       ├── logo-512.jpg             # Logo optimizado para JSON-LD (512×512)
+│       └── og-nutravit.jpg          # Imagen Open Graph (1200×630)
 ├── src/
 │   ├── app/                         # App Router de Next.js 16
 │   │   ├── globals.css              # Estilos globales + tokens Tailwind v4 (@theme inline)

@@ -62,7 +62,7 @@ El proyecto utiliza la nueva API de Tailwind v4 con el plugin PostCSS (`@tailwin
 
 - **Hosting recomendado:** **Vercel** o **Cloudflare Pages**
   - Vercel tiene soporte nativo para Next.js 16. Con cada `git push`, construye los archivos estáticos y los distribuye globalmente en su Edge Network.
-- **Dominio por defecto:** `previvet.vercel.app` (configurable vía `NEXT_PUBLIC_SITE_URL`)
+- **Dominio por defecto:** `vetlinenutrition.vercel.app` (configurable vía `NEXT_PUBLIC_SITE_URL`)
 
 ## 4. Capa de Red y Seguridad Front-End
 
