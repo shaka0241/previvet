@@ -54,12 +54,13 @@ Los 5 agentes coinciden en 4 problemas que cruzan disciplinas:
 - [x] Bonus: alt funcional del logo (`Inicio — Vetline Nutrition`) + `href="#inicio"` con `id="inicio"` en el hero; pre-título del hero con keywords ("Núcleo nutricional para bovinos y porcinos")
 - [ ] ⚠️ Pendiente cliente: fotografía de producto/animales y datos reales (teléfono WhatsApp, NIT, registro sanitario)
 
-### Fase 3 — Calidad interna (1–2 días)
-- [ ] Extraer `lib/contact.ts`: payload tipado, validación (incl. teléfono), timeout, guardas para env keys
-- [ ] Centralizar en `data.ts` todo el copy disperso (H2s, form, footer)
-- [ ] Unificar `PrimaryButton` + helper `cn()` (tailwind-merge); union type para íconos
-- [ ] Navbar: separar menú móvil en client component mínimo (header server-rendered)
-- [ ] Componente `SectionHeading` para el patrón repetido ×4
+### Fase 3 — Calidad interna (1–2 días) ✅ Completada (2026-08-22)
+- [x] Extraer `lib/contact.ts`: `ContactFormData` tipado, `parseContactForm()`, `validateContactForm()` (nombre, teléfono con regex, email opcional, mensaje), `submitContact()` con `AbortSignal.timeout(10s)` y guardas de access key; errores por campo con `aria-invalid` + `role="alert"`
+- [x] Centralizar en `data.ts`: H2s (`sectionTitles`), copy completo del formulario (`contactForm`), intro/CTA del footer (`footerContent`), CTA del navbar (`siteConfig.ctaLabel`)
+- [x] Unificar botones: helper `cn()` (tailwind-merge) + `primaryButtonClasses` compartido; navbar (desktop/móvil) y footer usan el estilo primario unificado; overrides del hero ahora resuelven sin conflictos
+- [x] Union types: `IconName`, `SpeciesId`, `Benefit` compartido por `SpeciesTab`/`ScienceBlock`; mapa de paths con `satisfies Record<IconName, ReactNode>` — typos de íconos ahora fallan en compilación
+- [x] Navbar split: solo `mobile-menu.tsx` es client component (~mínimo); logo, links y CTA server-rendered. Bonus a11y: aria-label dinámico, cierre con Escape/clic-fuera y devolución de foco
+- [x] Componente `SectionHeading` para el patrón repetido ×4 (benefits, science, species-benefits)
 
 ---
 

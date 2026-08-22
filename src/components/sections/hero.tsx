@@ -1,4 +1,4 @@
-import { hero, siteConfig } from "@/content/data";
+import { hero } from "@/content/data";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/buttons";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import { whatsappUrl } from "@/lib/site";

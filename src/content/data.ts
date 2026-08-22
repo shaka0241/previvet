@@ -1,7 +1,10 @@
 import type {
   BenefitCard,
+  ContactFormContent,
   Dosage,
+  FooterContent,
   ScienceBlock,
+  SectionTitles,
   SiteConfig,
   SpeciesTab,
 } from "@/types";
@@ -10,11 +13,46 @@ export const siteConfig: SiteConfig = {
   name: "Vetline Nutrition",
   productName: "Nutravit ADE3 Plus",
   logo: "/images/logo-nav.webp",
+  ctaLabel: "Cotizar",
   navLinks: [
     { label: "Beneficios", href: "#beneficios" },
     { label: "Ciencia", href: "#ciencia" },
     { label: "Presentaciones", href: "#presentaciones" },
   ],
+};
+
+export const sectionTitles: SectionTitles = {
+  speciesBenefits: "Beneficios por Especie",
+  science: "La Ciencia de nuestra Fórmula",
+  presentations: "Presentación y Dosificación",
+};
+
+export const contactForm: ContactFormContent = {
+  labels: {
+    name: "Nombre",
+    phone: "Teléfono / WhatsApp",
+    email: "Correo electrónico",
+    message: "Mensaje",
+  },
+  placeholders: {
+    name: "Tu nombre",
+    phone: "+57 300 123 4567",
+    email: "correo@empresa.com",
+    message: "Cuéntanos sobre tu producción (especie, número de animales...)",
+  },
+  submitLabel: "Enviar solicitud",
+  submittingLabel: "Enviando...",
+  privacyNote: "Tus datos solo se usan para enviarte la cotización.",
+  successTitle: "¡Solicitud enviada!",
+  successMessage: "Un asesor te contactará en menos de 24 horas.",
+  successWhatsappCta: "Respuesta inmediata por WhatsApp",
+  errorBeforeLink: "Hubo un error al enviar. Inténtalo de nuevo",
+  errorLinkText: "escríbenos por WhatsApp",
+};
+
+export const footerContent: FooterContent = {
+  intro: `Déjanos tus datos y un asesor de Vetline Nutrition te contactará con una cotización personalizada.`,
+  whatsappCta: "Escríbenos por WhatsApp",
 };
 
 export const hero = {

@@ -1,13 +1,11 @@
-import { scienceIntro, scienceBlocks } from "@/content/data";
+import { scienceIntro, scienceBlocks, sectionTitles } from "@/content/data";
+import SectionHeading from "@/components/ui/section-heading";
 
 export default function Science() {
   return (
     <section id="ciencia" className="scroll-mt-16 bg-gray-50 px-4 py-20">
       <div className="mx-auto flex max-w-3xl flex-col gap-8">
-        <h2 className="font-heading text-secondary text-center text-3xl font-bold md:text-4xl">
-          La Ciencia de nuestra Fórmula
-        </h2>
-        <p className="text-center text-gray-600">{scienceIntro}</p>
+        <SectionHeading title={sectionTitles.science} intro={scienceIntro} />
         <div className="flex flex-col gap-4">
           {scienceBlocks.map((block) => (
             <details
