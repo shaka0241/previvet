@@ -12,8 +12,11 @@
 | [`accessibility.md`](accessibility.md) | Accesibilidad WCAG 2.2 | 8 barreras |
 | [`architecture.md`](architecture.md) | Arquitectura y calidad de código | 7 ideas + quick wins |
 | [`performance.md`](performance.md) | Rendimiento Core Web Vitals | 6 ideas |
+| [`legal.md`](legal.md) | Auditoría legal y protección de datos (ronda 2) | 6 hallazgos |
+| [`ciberseguridad.md`](ciberseguridad.md) | Auditoría OWASP/ciberseguridad (ronda 2) | 6 hallazgos |
+| [`acciones-legal-seguridad.md`](acciones-legal-seguridad.md) | Plan de remediación derivado de ambas auditorías | 3 fases |
 
-**Total: 39 hallazgos accionables.**
+**Total: 45 hallazgos accionables** (33 de ronda 1 ya ejecutados, 10 de ronda 2 ya ejecutados, 2 auditorías nuevas pendientes de plan).
 
 ---
 
