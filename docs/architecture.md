@@ -1,6 +1,6 @@
 # Arquitectura Estática, Segura y de Alto Rendimiento
 
-Arquitectura real del proyecto **Previvet / Vetline Nutrition** — un sitio estático (Jamstack) sin servidor propio, optimizado para velocidad de carga y seguridad.
+Arquitectura real del proyecto **Vetline Nutrition** (repositorio interno: `previvet`) — un sitio estático (Jamstack) sin servidor propio, optimizado para velocidad de carga y seguridad.
 
 ## 1. Stack Tecnológico (Frontend)
 

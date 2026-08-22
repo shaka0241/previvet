@@ -1,6 +1,6 @@
 # Estructura del Proyecto (Next.js 16 + Tailwind CSS v4)
 
-Este documento refleja la estructura real del proyecto **Previvet / Vetline Nutrition** — una landing page estática construida con **Next.js 16 (App Router, static export)** y **Tailwind CSS v4** puro, sin librerías de componentes externas.
+Este documento refleja la estructura real del proyecto **Vetline Nutrition** (repositorio interno: `previvet`) — una landing page estática construida con **Next.js 16 (App Router, static export)** y **Tailwind CSS v4** puro, sin librerías de componentes externas.
 
 ## 1. Árbol de Directorios
 

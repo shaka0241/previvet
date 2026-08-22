@@ -1,6 +1,6 @@
-# Previvet — Vetline Nutrition Landing Page
+# Vetline Nutrition — Landing Nutravit ADE3 Plus
 
-Landing page estática para **Nutravit ADE3 Plus**, un núcleo nutricional de alta palatabilidad para bovinos y porcinos, desarrollada por Vetline Nutrition.
+Landing page estática para **Nutravit ADE3 Plus**, un núcleo nutricional de alta palatabilidad para bovinos y porcinos, desarrollada para **Vetline Nutrition**. Nombre interno del repositorio: `previvet`.
 
 ## Stack Tecnológico
 
@@ -34,11 +34,12 @@ Copiar `.env.example` a `.env.local` y configurar:
 cp .env.example .env.local
 ```
 
-| Variable                         | Descripción                                    |
-| -------------------------------- | ---------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`           | URL del sitio (para Open Graph / metadataBase) |
-| `NEXT_PUBLIC_WEB3FORMS_KEY`      | Clave pública de Web3Forms                     |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Site key de Cloudflare Turnstile               |
+| Variable                         | Descripción                                                                                                       |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`           | URL del sitio (para Open Graph / metadataBase)                                                                    |
+| `NEXT_PUBLIC_WEB3FORMS_KEY`      | Clave pública de Web3Forms                                                                                        |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Site key de Cloudflare Turnstile                                                                                  |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER`    | Número WhatsApp internacional sin `+` (ej. `573001234567`). Si se omite, no se renderizan los enlaces de WhatsApp |
 
 ### Desarrollo
 

@@ -1,4 +1,7 @@
-const paths: Record<string, React.ReactNode> = {
+import type { ReactNode } from "react";
+import type { IconName } from "@/types";
+
+const paths = {
   minerals: (
     <path d="M12 3l4 6h-8l4-6zm-7 9a5 5 0 0110 0 5 5 0 01-10 0zm12 1a4 4 0 110 8 4 4 0 010-8zM7 13a4 4 0 100 8 4 4 0 000-8z" />
   ),
@@ -18,14 +21,14 @@ const paths: Record<string, React.ReactNode> = {
       <circle cx="8" cy="16" r="4" opacity={0.5} />
     </>
   ),
-};
+} satisfies Record<IconName, ReactNode>;
 
 export default function BenefitCard({
   icon,
   title,
   description,
 }: {
-  icon: string;
+  icon: IconName;
   title: string;
   description: string;
 }) {

@@ -19,7 +19,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteConfig.name} | ${siteConfig.productName}`,
+    default: `${siteConfig.productName} – Núcleo Nutricional para Bovinos y Porcinos | ${siteConfig.name}`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
@@ -27,28 +27,63 @@ export const metadata: Metadata = {
   keywords: [
     "suplemento veterinario",
     "nutrición animal",
+    "núcleo nutricional",
     "ganadería",
     "bovinos",
     "porcinos",
     "Nutravit ADE3 Plus",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: `${siteConfig.name} | ${siteConfig.productName}`,
+    title: `${siteConfig.productName} – Núcleo Nutricional para Bovinos y Porcinos`,
     description:
       "Núcleo nutricional de alta palatabilidad. Garantiza asimilación del 100% y maximiza la conversión alimenticia.",
     type: "website",
     locale: "es_LA",
-    images: [{ url: "/images/logo-512.jpg", width: 512, height: 512 }],
+    url: "/",
+    images: [{ url: "/images/og-nutravit.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.productName} – Núcleo Nutricional para Bovinos y Porcinos`,
+    description:
+      "Núcleo nutricional de alta palatabilidad. Garantiza asimilación del 100% y maximiza la conversión alimenticia.",
+    images: ["/images/og-nutravit.jpg"],
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Product",
-  name: siteConfig.productName,
-  brand: { "@type": "Brand", name: siteConfig.name },
-  description:
-    "Núcleo nutricional de alta palatabilidad con minerales, vitaminas A-D3-E, probióticos y grasa sobrepasante para bovinos y porcinos.",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: siteConfig.name,
+      url: siteUrl,
+      logo: `${siteUrl}/images/logo-512.jpg`,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: siteConfig.name,
+      publisher: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "es",
+    },
+    {
+      "@type": "Product",
+      "@id": `${siteUrl}/#product`,
+      name: siteConfig.productName,
+      url: siteUrl,
+      image: `${siteUrl}/images/og-nutravit.jpg`,
+      category: "Animal Nutrition Supplement",
+      brand: { "@id": `${siteUrl}/#organization` },
+      description:
+        "Núcleo nutricional de alta palatabilidad con minerales, vitaminas A-D3-E, probióticos y grasa sobrepasante para bovinos y porcinos.",
+    },
+  ],
 };
 
 export default function RootLayout({
