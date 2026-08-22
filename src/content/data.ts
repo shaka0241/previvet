@@ -18,7 +18,7 @@ export const siteConfig: SiteConfig = {
 };
 
 export const hero = {
-  preTitle: "Comprometidos con el Bienestar Animal",
+  preTitle: "Núcleo nutricional para bovinos y porcinos",
   title: "Nutrición Integral que Transforma tu Ganadería.",
   subtitle:
     "Nutravit ADE3 Plus no es solo un suplemento, es un núcleo nutricional de alta palatabilidad. Garantiza asimilación del 100%, maximiza la conversión alimenticia y asegura tu rentabilidad.",

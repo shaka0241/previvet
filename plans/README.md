@@ -47,11 +47,12 @@ Los 5 agentes coinciden en 4 problemas que cruzan disciplinas:
 - [x] Panel de confirmación post-envío (check animado + SLA 24 h + botón WhatsApp) con `role="status"`; spinner + `min-w` en submit, micro-copy de privacidad, labels visibles y `role="alert"` en error
 - [x] Skip link + `<main id="contenido">`
 
-### Fase 2 — Indexabilidad y contenido (1 día)
-- [ ] Tabs: renderizar ambos paneles siempre (atributo `hidden`) + patrón APG completo (flechas, `aria-controls`) + `flex-wrap`
-- [ ] Title con keywords producto, OG 1200×630 dedicada, Twitter Card, canonical
-- [ ] JSON-LD `@graph` (Organization + WebSite + Product con imagen/url)
-- [ ] ⚠️ Requiere cliente: fotografía de producto/animales y datos reales (teléfono, NIT, registro sanitario)
+### Fase 2 — Indexabilidad y contenido (1 día) ✅ Completada (2026-08-22)
+- [x] Tabs: renderizar ambos paneles siempre (atributo `hidden`) + patrón APG completo (flechas ←/→/Home/End, `aria-controls`, roving tabindex) + `flex-wrap` + targets ≥44px — *verificado: los 4 beneficios de Porcinos ahora existen en el HTML exportado*
+- [x] Title con keywords producto, OG 1200×630 dedicada (`og-nutravit.jpg`, generada con marca), Twitter Card `summary_large_image`, canonical
+- [x] JSON-LD `@graph` (Organization + WebSite + Product con imagen/url/categoría) — *verificado en el HTML exportado*
+- [x] Bonus: alt funcional del logo (`Inicio — Vetline Nutrition`) + `href="#inicio"` con `id="inicio"` en el hero; pre-título del hero con keywords ("Núcleo nutricional para bovinos y porcinos")
+- [ ] ⚠️ Pendiente cliente: fotografía de producto/animales y datos reales (teléfono WhatsApp, NIT, registro sanitario)
 
 ### Fase 3 — Calidad interna (1–2 días)
 - [ ] Extraer `lib/contact.ts`: payload tipado, validación (incl. teléfono), timeout, guardas para env keys

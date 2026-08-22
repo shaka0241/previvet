@@ -7,7 +7,10 @@ export default function Hero() {
   const waHref = whatsappUrl();
 
   return (
-    <section className="from-secondary bg-gradient-to-b to-[#2a4a7f] px-4 pt-32 pb-20 text-white">
+    <section
+      id="inicio"
+      className="from-secondary bg-gradient-to-b to-[#2a4a7f] px-4 pt-32 pb-20 text-white"
+    >
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
         <p className="text-sm font-semibold tracking-widest text-green-400 uppercase">
           {hero.preTitle}
