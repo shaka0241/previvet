@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/content/data";
+import siteUrl from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,9 +17,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://previvet.vercel.app"
-  ),
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${siteConfig.name} | ${siteConfig.productName}`,
     template: `%s | ${siteConfig.name}`,
@@ -39,7 +38,7 @@ export const metadata: Metadata = {
       "Núcleo nutricional de alta palatabilidad. Garantiza asimilación del 100% y maximiza la conversión alimenticia.",
     type: "website",
     locale: "es_LA",
-    images: [{ url: "/images/previvetlogo.jpeg", width: 512, height: 512 }],
+    images: [{ url: "/images/logo-512.jpg", width: 512, height: 512 }],
   },
 };
 
@@ -56,8 +55,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${montserrat.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans">
+    <html
+      lang="es"
+      className={`${inter.variable} ${montserrat.variable} h-full antialiased`}
+    >
+      <body className="flex min-h-full flex-col font-sans">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

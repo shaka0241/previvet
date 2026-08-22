@@ -7,16 +7,18 @@ const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    (window as { onTurnstileSuccess?: (t: string) => void }).onTurnstileSuccess =
-      setToken;
+    (
+      window as { onTurnstileSuccess?: (t: string) => void }
+    ).onTurnstileSuccess = setToken;
     return () => {
-      delete (
-        window as { onTurnstileSuccess?: (t: string) => void }
-      ).onTurnstileSuccess;
+      delete (window as { onTurnstileSuccess?: (t: string) => void })
+        .onTurnstileSuccess;
     };
   }, []);
 
@@ -29,7 +31,10 @@ export default function ContactForm() {
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({ ...data, turnstile_response: token }),
       });
       if (!res.ok) throw new Error();
@@ -53,13 +58,35 @@ export default function ContactForm() {
       )}
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
-        <input type="hidden" name="subject" value="Nuevo lead — Nutravit ADE3 Plus" />
+        <input
+          type="hidden"
+          name="subject"
+          value="Nuevo lead — Nutravit ADE3 Plus"
+        />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input name="name" required placeholder="Nombre" aria-label="Nombre" className={inputClasses} />
-          <input name="phone" required placeholder="Teléfono / WhatsApp" aria-label="Teléfono" className={inputClasses} />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <input
+            name="name"
+            required
+            placeholder="Nombre"
+            aria-label="Nombre"
+            className={inputClasses}
+          />
+          <input
+            name="phone"
+            required
+            placeholder="Teléfono / WhatsApp"
+            aria-label="Teléfono"
+            className={inputClasses}
+          />
         </div>
-        <input name="email" type="email" placeholder="Correo electrónico" aria-label="Correo" className={inputClasses} />
+        <input
+          name="email"
+          type="email"
+          placeholder="Correo electrónico"
+          aria-label="Correo"
+          className={inputClasses}
+        />
         <textarea
           name="message"
           rows={4}
@@ -80,17 +107,20 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="bg-secondary text-white font-bold py-3 px-6 rounded-md hover:bg-secondary/90 transition-colors disabled:opacity-60"
+          className="bg-secondary hover:bg-secondary/90 rounded-md px-6 py-3 font-bold text-white transition-colors disabled:opacity-60"
         >
           {status === "sending" ? "Enviando..." : "Enviar solicitud"}
         </button>
 
         {status === "success" && (
-          <p className="text-primary font-medium">¡Gracias! Te contactaremos pronto.</p>
+          <p className="text-primary font-medium">
+            ¡Gracias! Te contactaremos pronto.
+          </p>
         )}
         {status === "error" && (
-          <p className="text-red-600 font-medium">
-            Hubo un error al enviar. Inténtalo de nuevo o escríbenos por WhatsApp.
+          <p className="font-medium text-red-600">
+            Hubo un error al enviar. Inténtalo de nuevo o escríbenos por
+            WhatsApp.
           </p>
         )}
       </form>

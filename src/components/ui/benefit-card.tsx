@@ -30,11 +30,15 @@ export default function BenefitCard({
   description: string;
 }) {
   return (
-    <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow flex flex-col gap-4">
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 text-primary">
+    <div className="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg">
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="text-primary h-12 w-12"
+      >
         {paths[icon]}
       </svg>
-      <h3 className="font-heading font-bold text-xl text-secondary">{title}</h3>
+      <h3 className="font-heading text-secondary text-xl font-bold">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </div>
   );

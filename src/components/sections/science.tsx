@@ -2,9 +2,9 @@ import { scienceIntro, scienceBlocks } from "@/content/data";
 
 export default function Science() {
   return (
-    <section id="ciencia" className="py-20 px-4 bg-gray-50 scroll-mt-16">
-      <div className="max-w-3xl mx-auto flex flex-col gap-8">
-        <h2 className="font-heading font-bold text-3xl md:text-4xl text-secondary text-center">
+    <section id="ciencia" className="scroll-mt-16 bg-gray-50 px-4 py-20">
+      <div className="mx-auto flex max-w-3xl flex-col gap-8">
+        <h2 className="font-heading text-secondary text-center text-3xl font-bold md:text-4xl">
           La Ciencia de nuestra Fórmula
         </h2>
         <p className="text-center text-gray-600">{scienceIntro}</p>
@@ -12,11 +12,11 @@ export default function Science() {
           {scienceBlocks.map((block) => (
             <details
               key={block.title}
-              className="group bg-white rounded-lg p-4 shadow-sm border border-gray-100"
+              className="group rounded-lg border border-gray-100 bg-white p-4 shadow-sm"
             >
-              <summary className="flex items-center justify-between cursor-pointer font-heading font-semibold text-secondary list-none">
+              <summary className="font-heading text-secondary flex cursor-pointer list-none items-center justify-between font-semibold">
                 {block.title}
-                <span className="transition-transform duration-300 group-open:rotate-45 text-primary text-xl">
+                <span className="text-primary text-xl transition-transform duration-300 group-open:rotate-45">
                   +
                 </span>
               </summary>

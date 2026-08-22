@@ -4,27 +4,27 @@ Arquitectura real del proyecto **Previvet / Vetline Nutrition** — un sitio est
 
 ## 1. Stack Tecnológico (Frontend)
 
-| Capa          | Tecnología                                          | Versión  |
-| ------------- | --------------------------------------------------- | -------- |
-| **Framework** | Next.js (App Router — Static Export)                | 16.3.2   |
-| **UI**        | React + React DOM                                   | 19.2.8   |
-| **Estilos**   | Tailwind CSS v4 (vía `@tailwindcss/postcss`)        | ^4       |
-| **Tipado**    | TypeScript                                          | ^5       |
-| **Linting**   | ESLint 9 (flat config) + `eslint-config-next`       | ^9       |
+| Capa          | Tecnología                                    | Versión |
+| ------------- | --------------------------------------------- | ------- |
+| **Framework** | Next.js (App Router — Static Export)          | 16.3.2  |
+| **UI**        | React + React DOM                             | 19.2.8  |
+| **Estilos**   | Tailwind CSS v4 (vía `@tailwindcss/postcss`)  | ^4      |
+| **Tipado**    | TypeScript                                    | ^5      |
+| **Linting**   | ESLint 9 (flat config) + `eslint-config-next` | ^9      |
 
 ### Modo de salida estática
 
 ```typescript
 // next.config.ts
 const nextConfig: NextConfig = {
-  output: "export",       // genera HTML estático en /out
+  output: "export", // genera HTML estático en /out
   images: {
-    unoptimized: true,     // requerido para static export
+    unoptimized: true, // requerido para static export
   },
 };
 ```
 
-*Justificación:* Al generar HTML estático con `output: "export"`, el sitio se sirve desde CDN sin necesidad de un servidor Node.js, logrando tiempos de carga < 1s y costo de hosting cercano a cero.
+_Justificación:_ Al generar HTML estático con `output: "export"`, el sitio se sirve desde CDN sin necesidad de un servidor Node.js, logrando tiempos de carga < 1s y costo de hosting cercano a cero.
 
 ### Tailwind CSS v4
 
@@ -47,10 +47,10 @@ El proyecto utiliza la nueva API de Tailwind v4 con el plugin PostCSS (`@tailwin
 
 ## 2. Gestión de Formularios (Sin Backend Propio)
 
-| Servicio                  | Propósito                                     |
-| ------------------------- | --------------------------------------------- |
-| **Web3Forms**             | Procesamiento de formularios vía API REST     |
-| **Cloudflare Turnstile**  | Protección anti-bot invisible                 |
+| Servicio                 | Propósito                                 |
+| ------------------------ | ----------------------------------------- |
+| **Web3Forms**            | Procesamiento de formularios vía API REST |
+| **Cloudflare Turnstile** | Protección anti-bot invisible             |
 
 **Implementación:** El componente [`contact-form.tsx`](file:///Users/albertorojas/proyectos/previvet/src/components/sections/contact-form.tsx) es un Client Component (`"use client"`) que:
 
@@ -60,21 +60,21 @@ El proyecto utiliza la nueva API de Tailwind v4 con el plugin PostCSS (`@tailwin
 
 ## 3. Infraestructura y Hosting (Despliegue Estático)
 
-*   **Hosting recomendado:** **Vercel** o **Cloudflare Pages**
-    *   Vercel tiene soporte nativo para Next.js 16. Con cada `git push`, construye los archivos estáticos y los distribuye globalmente en su Edge Network.
-*   **Dominio por defecto:** `previvet.vercel.app` (configurable vía `NEXT_PUBLIC_SITE_URL`)
+- **Hosting recomendado:** **Vercel** o **Cloudflare Pages**
+  - Vercel tiene soporte nativo para Next.js 16. Con cada `git push`, construye los archivos estáticos y los distribuye globalmente en su Edge Network.
+- **Dominio por defecto:** `previvet.vercel.app` (configurable vía `NEXT_PUBLIC_SITE_URL`)
 
 ## 4. Capa de Red y Seguridad Front-End
 
-*   **DNS / CDN:** Cloudflare (mitigación DDoS, Edge Caching, protección gratuita)
-*   **Anti-Spam:** Cloudflare Turnstile integrado en el formulario de contacto (invisible en la mayoría de los casos)
+- **DNS / CDN:** Cloudflare (mitigación DDoS, Edge Caching, protección gratuita)
+- **Anti-Spam:** Cloudflare Turnstile integrado en el formulario de contacto (invisible en la mayoría de los casos)
 
 ## 5. SEO y Structured Data
 
 El layout raíz ([`layout.tsx`](file:///Users/albertorojas/proyectos/previvet/src/app/layout.tsx)) exporta:
 
-*   **`metadata`**: Título, descripción, keywords, Open Graph (locale `es_LA`)
-*   **JSON-LD**: Schema `Product` con nombre de marca y producto
+- **`metadata`**: Título, descripción, keywords, Open Graph (locale `es_LA`)
+- **JSON-LD**: Schema `Product` con nombre de marca y producto
 
 ## 6. Flujo de Operación
 

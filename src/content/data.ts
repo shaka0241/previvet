@@ -9,7 +9,7 @@ import type {
 export const siteConfig: SiteConfig = {
   name: "Vetline Nutrition",
   productName: "Nutravit ADE3 Plus",
-  logo: "/images/previvetlogo.jpeg",
+  logo: "/images/logo-nav.webp",
   navLinks: [
     { label: "Beneficios", href: "#beneficios" },
     { label: "Ciencia", href: "#ciencia" },
@@ -54,8 +54,7 @@ export const benefitCards: BenefitCard[] = [
   {
     icon: "vitamins",
     title: "Vitaminas",
-    description:
-      "Complejo A, D3 y E, y aminoácidos esenciales encapsulados.",
+    description: "Complejo A, D3 y E, y aminoácidos esenciales encapsulados.",
   },
 ];
 
@@ -109,15 +108,13 @@ export const speciesTabs: SpeciesTab[] = [
       },
       {
         title: "Control de Diarreas",
-        description:
-          "Probióticos y Prebióticos eliminan E. coli y Salmonella.",
+        description: "Probióticos y Prebióticos eliminan E. coli y Salmonella.",
       },
     ],
   },
 ];
 
-export const scienceIntro =
-  "Ingredientes que marcan la diferencia";
+export const scienceIntro = "Ingredientes que marcan la diferencia";
 
 export const scienceBlocks: ScienceBlock[] = [
   {
