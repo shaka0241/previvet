@@ -1,18 +1,16 @@
-# Arquitectura Estática, Segura y de Alto Rendimiento (Hero UI Edition)
+# Arquitectura Estática, Segura y de Alto Rendimiento (Tailwind CSS Edition)
 
-Esta arquitectura mantiene el enfoque estático, seguro y sin costos de servidor (Jamstack), pero integra **Hero UI** (anteriormente NextUI) para potenciar el diseño de la interfaz con componentes premium, accesibles y listos para usar.
+Esta arquitectura mantiene el enfoque estático, seguro y sin costos de servidor (Jamstack), integrando **Tailwind CSS** para un diseño de interfaz altamente personalizado, ligero y sin dependencias de UI pesadas.
 
 ## 1. Stack Tecnológico (Frontend)
-*   **Framework:** **Astro (con integración React)** o **Next.js (App Router - Static Export)**.
-    *   *Nota de Compatibilidad:* Hero UI está construido sobre React y Framer Motion. Por lo tanto, debes usar un framework que soporte React. Astro es ideal porque permite hidratación parcial (islas), enviando JS solo donde el componente de Hero UI lo requiere, manteniendo la web ultrarrápida.
-*   **Librería UI:** **Hero UI (React)**.
-    *   *Justificación:* Ofrece componentes preconstruidos (Tarjetas, Acordeones, Pestañas) con animaciones fluidas y accesibilidad (basado en React Aria). Acelera el desarrollo sin sacrificar diseño.
+*   **Framework:** **Astro (con integración React/Preact opcional)** o **Next.js (App Router - Static Export)**.
+    *   *Nota:* Al usar exclusivamente Tailwind CSS, la carga de JavaScript se reduce drásticamente, lo que hace que frameworks como Astro brillen aún más enviando HTML puro y logrando tiempos de carga ultrarrápidos.
 *   **Estilos:** **Tailwind CSS**.
-    *   *Justificación:* Hero UI funciona como un plugin de Tailwind, permitiendo personalizar los colores de la marca directamente en el `tailwind.config.js`.
+    *   *Justificación:* Metodología utility-first que permite construir diseños responsivos y personalizados directamente en el markup, generando un archivo CSS final minúsculo con solo las clases utilizadas.
 
 ## 2. Gestión de Formularios (Sin Backend Propio)
 *   **Servicio:** **Netlify Forms**, **Formspree** o **Web3Forms**.
-    *   *Implementación:* Utilizarás los componentes `<Input>` y `<Button>` de Hero UI dentro de una etiqueta `<form>` nativa apuntando al endpoint de Formspree. Esto permite capturar leads, validar los datos visualmente con Hero UI y enviarlos por correo sin tener un servidor backend.
+    *   *Implementación:* Utilizarás etiquetas `<input>`, `<textarea>` y `<button>` nativas estilizadas con Tailwind CSS apuntando al endpoint de Formspree. Esto permite capturar leads y validarlos sin tener un servidor backend.
 
 ## 3. Infraestructura y Hosting (Despliegue Estático)
 *   **Hosting:** **Vercel** o **Cloudflare Pages**.
@@ -26,6 +24,6 @@ Esta arquitectura mantiene el enfoque estático, seguro y sin costos de servidor
 
 ## 5. Flujo de Operación
 1.  **Visita:** El ganadero entra a la web, servida estáticamente vía Vercel/Cloudflare (< 1s de carga).
-2.  **Interacción:** Interactúa con los Acordeones y Pestañas animadas de Hero UI (optimizadas para móvil).
-3.  **Conversión:** Completa el formulario (Inputs de Hero UI).
+2.  **Interacción:** Interactúa con el sitio ultraligero estilizado con Tailwind CSS.
+3.  **Conversión:** Completa el formulario con un diseño limpio.
 4.  **Envío:** Web3Forms/Formspree procesa la solicitud (con Turnstile validando que es humano) y envía el Lead al correo del equipo de Vetline.

@@ -1,22 +1,22 @@
-# Contenido para Poblado de Landing Page (Estructura Hero UI) - Vetline Nutrition
+# Contenido para Poblado de Landing Page (Estructura Tailwind CSS) - Vetline Nutrition
 
-Este documento contiene el texto (copywriting) adaptado específicamente para encajar en los componentes de **Hero UI**.
+Este documento contiene el texto (copywriting) adaptado para encajar en secciones estandarizadas con **Tailwind CSS**.
 
 ---
 
 ## 1. Cabecera (Hero Section)
-*Sugerencia UI: Usar un fondo difuminado o una imagen de fondo oscurecida. Los botones deben usar el componente `<Button>` de Hero UI.*
+*Sugerencia UI: Usar un fondo difuminado o una imagen de fondo oscurecida (`bg-cover bg-center`). Los botones deben estar estilizados con clases utilitarias de Tailwind.*
 
 *   **Pre-título:** Comprometidos con el Bienestar Animal
 *   **Título Principal (H1):** Nutrición Integral que Transforma tu Ganadería.
 *   **Subtítulo (H2):** Nutravit ADE3 Plus no es solo un suplemento, es un núcleo nutricional de alta palatabilidad. Garantiza asimilación del 100%, maximiza la conversión alimenticia y asegura tu rentabilidad.
-*   **CTA Primario:** `<Button color="secondary">` Solicitar Cotización
-*   **CTA Secundario:** `<Button color="primary" variant="bordered">` Hablar con un Asesor
+*   **CTA Primario:** Botón con clases `bg-secondary text-white hover:bg-secondary/90 transition-colors` - Solicitar Cotización
+*   **CTA Secundario:** Botón con clases `border-2 border-primary text-primary hover:bg-primary/10 transition-colors` - Hablar con un Asesor
 
 ---
 
 ## 2. Sección: ¿Por qué Nutravit ADE3 Plus?
-*Sugerencia UI: Usar un Grid de Tailwind con 4 componentes `<Card isHoverable>` de Hero UI.*
+*Sugerencia UI: Usar un Grid de Tailwind (`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6`) con tarjetas limpias (`bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow`).*
 
 *   **Título:** Sinergia Biológica para Resultados Reales
 *   **Texto introductorio:** Integramos los mejores componentes del mercado para potenciar la salud y el rendimiento.
@@ -30,15 +30,15 @@ Este documento contiene el texto (copywriting) adaptado específicamente para en
 ---
 
 ## 3. Sección: Beneficios por Especie
-*Sugerencia UI: Componente `<Tabs>` de Hero UI. Dos `Tab`, uno para Bovinos (ícono vaca) y otro para Porcinos (ícono cerdo).*
+*Sugerencia UI: Crear un contenedor para pestañas con botones para alternar el contenido (Bovinos y Porcinos) usando clases de Tailwind para los estados activo e inactivo.*
 
-### `<Tab title="Bovinos (Leche y Carne)">`
+### Pestaña: Bovinos (Leche y Carne)
 *   **Cero Fiebre de Leche:** Combinación de Calcio, Magnesio y Selenio prepara a la vaca para el parto.
 *   **Picos de Leche Sostenidos:** Biofos aporta energía celular; Magnesio activa el rumen. ¡Más litros con más grasa!
 *   **Aprovechamiento del Pasto:** Azufre y Probióticos multiplican bacterias buenas para digerir pastos duros.
 *   **Repelente Natural:** El Azufre actúa como escudo natural contra garrapatas y moscas.
 
-### `<Tab title="Porcinos (Cerdas y Engorde)">`
+### Pestaña: Porcinos (Cerdas y Engorde)
 *   **Partos más rápidos:** Calcio activa contracciones eficientes, reduciendo asfixia en lechones.
 *   **Lechones Más Pesados:** Aminoácidos elevan la calidad de la leche materna para destetes grandes y sanos.
 *   **Huesos de Acero:** Biofos y Calcio garantizan articulaciones que soportan más de 100 kg.
@@ -47,23 +47,23 @@ Este documento contiene el texto (copywriting) adaptado específicamente para en
 ---
 
 ## 4. Sección: La Ciencia de nuestra Fórmula
-*Sugerencia UI: Componente `<Accordion variant="splitted">` de Hero UI. Ideal para lectura en móviles.*
+*Sugerencia UI: Usar etiquetas `<details>` y `<summary>` estilizadas con Tailwind (`group`, `cursor-pointer`, `bg-gray-50 rounded-lg p-4`) para crear un acordeón.*
 
 *   **Título:** Ingredientes que marcan la diferencia
 
-*   **`<AccordionItem title="Grasa Sobrepasante (Jabones de Calcio)">`**
+*   **Bloque 1: Grasa Sobrepasante (Jabones de Calcio)**
     Energía pura que "pasa de largo" el rumen y se absorbe al 100% en el intestino. Evita la cetosis en vacas recién paridas y acelera el engorde.
-*   **`<AccordionItem title="Tecnología Simbiótica (Probióticos + Prebióticos)">`**
+*   **Bloque 2: Tecnología Simbiótica (Probióticos + Prebióticos)**
     Levadura Viva (Saccharomyces cerevisiae) combinada con MOS y Beta-glucanos. Exclusión competitiva de patógenos y máxima absorción.
-*   **`<AccordionItem title="Aminoácidos Limitantes">`**
+*   **Bloque 3: Aminoácidos Limitantes**
     Metionina, Lisina y Treonina. Los "ladrillos" para el desarrollo muscular magro y un sistema inmune de hierro.
-*   **`<AccordionItem title="Micro y Macrominerales de Alta Gama">`**
+*   **Bloque 4: Micro y Macrominerales de Alta Gama**
     Desde Cobalto para Vitamina B12, hasta Selenito para antioxidación y Yodo para optimizar el metabolismo basal.
 
 ---
 
 ## 5. Sección: Presentación y Dosificación
-*Sugerencia UI: Mostrar las dos presentaciones con `<Image>` de Hero UI, y una tarjeta de información lateral.*
+*Sugerencia UI: Mostrar las dos presentaciones con imágenes usando clases como `rounded-xl shadow-lg object-cover` y una tarjeta de información lateral.*
 
 *   **Rumiantes:** 100 gramos diarios por animal.
 *   **Porcinos y Caprinos:** 50 gramos diarios por animal.
@@ -74,4 +74,4 @@ Este documento contiene el texto (copywriting) adaptado específicamente para en
 
 ## 6. Footer (Llamado a la Acción)
 *   **Título:** ¿Listo para llevar tu producción al siguiente nivel?
-*   **CTA Formulario:** Utilizar componentes `<Input>`, `<Textarea>` y `<Button>` de Hero UI conectados a Web3Forms.
+*   **CTA Formulario:** Utilizar componentes de formulario estándar (`<input>`, `<textarea>`, `<button>`) estilizados con bordes (`border-gray-300 rounded-md`), padding (`p-3`) y focus rings de Tailwind (`focus:ring-2 focus:ring-primary`) conectados a Web3Forms.
