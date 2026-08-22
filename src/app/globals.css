@@ -27,6 +27,14 @@ body {
   }
 }
 
+#menu-movil:popover-open {
+  display: flex;
+}
+
+#menu-movil::backdrop {
+  background: rgb(15 23 42 / 0.4);
+}
+
 @keyframes pop-in {
   0% {
     opacity: 0;
@@ -58,8 +66,12 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-pop-in,
-  .animate-fade-up {
-    animation: none;
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

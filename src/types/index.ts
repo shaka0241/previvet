@@ -61,6 +61,40 @@ export interface FooterContent {
   whatsappCta: string;
 }
 
+export interface SocialProofContent {
+  stats: StatItem[];
+  testimonials: Testimonial[];
+}
+
+export interface HowToBuyContent {
+  steps: HowToBuyStep[];
+  moq: string;
+  countries: string[];
+  registries: string[];
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface StatItem {
+  value: string;
+  label: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  farm: string;
+  country: string;
+}
+
+export interface HowToBuyStep {
+  title: string;
+  description: string;
+}
+
 export interface SiteConfig {
   name: string;
   productName: string;

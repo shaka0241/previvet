@@ -2,10 +2,13 @@ import type {
   BenefitCard,
   ContactFormContent,
   Dosage,
+  FaqItem,
   FooterContent,
+  HowToBuyContent,
   ScienceBlock,
   SectionTitles,
   SiteConfig,
+  SocialProofContent,
   SpeciesTab,
 } from "@/types";
 
@@ -53,6 +56,49 @@ export const contactForm: ContactFormContent = {
 export const footerContent: FooterContent = {
   intro: `Déjanos tus datos y un asesor de Vetline Nutrition te contactará con una cotización personalizada.`,
   whatsappCta: "Escríbenos por WhatsApp",
+};
+
+export const errorPages = {
+  notFoundTitle: "Página no encontrada",
+  notFoundMessage:
+    "La página que buscas no existe o fue movida. Conoce Nutravit ADE3 Plus desde el inicio.",
+  backHomeLabel: "Volver al inicio",
+  errorTitle: "Algo salió mal",
+  errorMessage:
+    "Ocurrió un error inesperado. Recarga la página o contáctanos para recibir tu cotización.",
+  reloadLabel: "Recargar página",
+};
+
+export const socialProof: SocialProofContent = {
+  stats: [
+    { value: "100%", label: "de asimilación garantizada" },
+    { value: "2", label: "especies: bovinos y porcinos" },
+    { value: "A-D3-E", label: "vitaminas esenciales encapsuladas" },
+  ],
+  testimonials: [],
+};
+
+export const howToBuy: HowToBuyContent = {
+  steps: [
+    {
+      title: "Solicita tu cotización",
+      description:
+        "Completa el formulario o escríbenos por WhatsApp contándonos la especie y el número de animales de tu producción.",
+    },
+    {
+      title: "Recibe tu proforma",
+      description:
+        "Un asesor de Vetline Nutrition te envía una cotización personalizada con precios y tiempos en menos de 24 horas.",
+    },
+    {
+      title: "Coordinamos el despacho",
+      description:
+        "Confirmado el pedido, programamos la entrega hasta tu finca o la del distribuidor más cercano.",
+    },
+  ],
+  moq: "",
+  countries: [],
+  registries: [],
 };
 
 export const hero = {
@@ -183,6 +229,39 @@ export const dosages: Dosage[] = [
   {
     species: "Alimento Balanceado (A.B.A)",
     amount: "20 kg por cada 500 kg de mezcla",
+  },
+];
+
+export const faqItems: FaqItem[] = [
+  {
+    question: "¿Para qué especies sirve Nutravit ADE3 Plus?",
+    answer:
+      "Está formulado para bovinos (leche y carne) y porcinos (cerdas y engorde). Sus minerales bioasimilables, probióticos y grasa sobrepasante se adaptan al rumen y al tracto del cerdo.",
+  },
+  {
+    question: "¿Cuál es la dosis diaria recomendada?",
+    answer:
+      "Rumiantes: 100 gramos diarios por animal. Porcinos y caprinos: 50 gramos diarios por animal. En alimento balanceado: 20 kg por cada 500 kg de mezcla.",
+  },
+  {
+    question: "¿Qué significa el ADE3 del nombre?",
+    answer:
+      "Hace referencia al complejo de vitaminas A, D3 y E encapsuladas que incluye la fórmula, junto con macrominerales premium (Biofos, Calcio, Magnesio) y aditivos vivos.",
+  },
+  {
+    question: "¿Cómo ayuda a prevenir la fiebre de leche en vacas?",
+    answer:
+      "La combinación de Calcio, Magnesio y Selenio prepara a la vaca para el parto, reduciendo la incidencia de hipocalcemia y sus consecuencias productivas.",
+  },
+  {
+    question: "¿En qué presentaciones está disponible?",
+    answer:
+      "Se comercializa en balde y en bolsa de 20 kg, listo para mezclar con el alimento o suministrar según la dosis diaria.",
+  },
+  {
+    question: "¿Cómo solicito una cotización?",
+    answer:
+      "Completa el formulario de contacto o escríbenos directamente por WhatsApp. Un asesor de Vetline Nutrition te responderá con una cotización personalizada en menos de 24 horas.",
   },
 ];
 

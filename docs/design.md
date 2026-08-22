@@ -101,5 +101,5 @@ Implementada en [`navbar.tsx`](file:///Users/albertorojas/proyectos/previvet/src
 
 ## 4. Dirección de Fotografía y Branding
 
-- **Logo:** [`logo-nav.webp`](/public/images/logo-nav.webp) (optimizado desde el master `previvetlogo.jpeg`) — renderizado con `next/image` en el Navbar con `alt="Vetline Nutrition Logo"`
+- **Logo:** [`logo-nav.webp`](/public/images/logo-nav.webp) — renderizado con `next/image` en el Navbar con `alt="Inicio — Vetline Nutrition"`
 - **Open Graph:** La misma imagen del logo se usa como `og:image` (512×512) en la metadata del layout

@@ -70,3 +70,23 @@ Los 5 agentes coinciden en 4 problemas que cruzan disciplinas:
 - Contenido Porcinos visible en el HTML exportado (`view-source:`)
 - LCP <1.8 s mantenido
 - Leads vía WhatsApp medibles como canal
+
+---
+
+# Ronda 2 del comité (2026-08-22) — 10 ideas ejecutadas
+
+| # | Agente | Idea | Estado |
+|---|--------|------|--------|
+| 1 | SEO | Sección FAQ (6 preguntas) + JSON-LD `FAQPage` vinculado al Product | ✅ |
+| 2 | SEO | Páginas dedicadas `/bovinos` y `/porcinos` con canonical propio + sitemap 0.8 | ✅ |
+| 3 | A11y | Errores de formulario con `id` + `aria-describedby` + resumen agrupado con enlaces-ancla (`role="alert"`) | ✅ |
+| 4 | A11y | `prefers-reduced-motion` universal (spinner, acordeón, transiciones) | ✅ |
+| 5 | UI/UX | Franja de prueba social bajo hero: cifras reales del producto; testimonios como estructura vacía pendiente cliente | ✅ |
+| 6 | UI/UX | Sección "Cómo Comprar": 3 pasos + MOQ/países/registros sanitarios condicionales (pendiente cliente) | ✅ |
+| 7 | Arq. | Vitest: 15 tests de `contact.ts`, `cn()`, `site.ts`; step "Unit tests" en CI | ✅ |
+| 8 | Arq. | `not-found.tsx` + `global-error.tsx` en español con marca | ✅ |
+| 9 | Perf. | Menú móvil con Popover API nativo (`popoverTarget`) — navbar 100% server, cero hidratación de menú; cierre por hashchange vía script inline vanilla | ✅ |
+| 10 | Perf. | Presupuesto de bundle en CI (`check:bundle`, límite 220 KB gzip, actual: 202) + `verify:deploy` para compresión brotli + huérfano `previvetlogo.jpeg` eliminado | ✅ |
+
+**Pendiente de datos del cliente:** testimonios reales (`data.ts → socialProof.testimonials`), pedido mínimo y países (`howToBuy.moq/countries`), registros sanitarios ICA/Senasa (`howToBuy.registries`). Los componentes ya renderizan estos bloques automáticamente al llenarlos.
+
