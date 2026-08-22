@@ -48,7 +48,7 @@ export default function Navbar() {
           type="button"
           popoverTarget="menu-movil"
           aria-label="Abrir menú"
-          className="p-2 text-secondary md:hidden"
+          className="text-secondary p-2 md:hidden"
         >
           <svg
             className="h-6 w-6"
