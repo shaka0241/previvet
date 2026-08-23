@@ -3,6 +3,14 @@
 > Informe generado por el comité de 5 agentes especialistas el 2026-08-22.
 > Cada informe completo vive en su propio archivo de esta carpeta.
 
+> **🔄 Actualización 2026-08-23:** Se eliminó por completo el formulario de contacto (`contact-form.tsx`, `lib/contact.ts`, Web3Forms y Cloudflare Turnstile). Todo el contacto y la conversión ahora ocurren vía **WhatsApp** (`wa.me`, `NEXT_PUBLIC_WHATSAPP_NUMBER`). Los hallazgos de estos informes relacionados con el formulario quedan **obsoletos/resueltos** con esa eliminación; se conservan como registro histórico de la auditoría.
+
+## ⏳ Pendiente al retomar (ver `acciones-legal-seguridad.md`)
+
+1. **Fase B — Dashboards** (reducida): configurar en Vercel las variables `NEXT_PUBLIC_SITE_URL` y `NEXT_PUBLIC_WHATSAPP_NUMBER` → redeploy → verificación (`npm run verify:deploy`). ~~Turnstile/Web3Forms~~ ya no aplican (formulario eliminado).
+2. **Fase C — Legal**: pedir al cliente país objetivo + razón social/NIT/dirección/email ARCO-P → `/politica-de-privacidad`. ~~Checkbox de consentimiento del formulario~~ ya no aplica (sin formulario); revisar aviso sobre datos tratados dentro de WhatsApp.
+3. **Del cliente también**: fotografía producto/animales, testimonios, MOQ/países, registros sanitarios ICA/Senasa (se renderizan solos al llenar `data.ts`).
+
 ## Índice de informes
 
 | Archivo | Agente | Hallazgos |
@@ -27,8 +35,8 @@ Los 5 agentes coinciden en 4 problemas que cruzan disciplinas:
 | Tema | Detectado por |
 |---|---|
 | **Tabs de especies rotas** (overflow móvil + ARIA incompleto + contenido Porcinos no indexable) | UI/UX, SEO, A11y |
-| **Formulario débil** (sin labels ni estados anunciados, payload sin tipar/sin validación/timeout, confirmación pobre, submit antes del token Turnstile) | UI/UX, A11y, Arquitectura, Rendimiento |
-| **WhatsApp fantasma** (el error del formulario lo promete, nadie lo implementa; además es el canal B2B que mejor convierte en LatAm) | UI/UX |
+| ~~**Formulario débil**~~ (resuelto 2026-08-23: formulario eliminado, todo va por WhatsApp) | UI/UX, A11y, Arquitectura, Rendimiento |
+| ~~**WhatsApp fantasma**~~ (resuelto 2026-08-23: hoy es el canal único de contacto) | UI/UX |
 | **Verde primario en tensión**: falla contraste (A11y) pero es justo el color propuesto para rescatar el CTA del hero (UI/UX) | A11y, UI/UX |
 | **Imágenes**: el único asset existente está sobredimensionado 27× y a la vez falta toda la fotografía comercial | SEO, Rendimiento, UI/UX |
 

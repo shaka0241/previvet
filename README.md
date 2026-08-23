@@ -4,14 +4,14 @@ Landing page estática para **Nutravit ADE3 Plus**, un núcleo nutricional de al
 
 ## Stack Tecnológico
 
-| Tecnología           | Versión | Propósito                                          |
-| -------------------- | ------- | -------------------------------------------------- |
-| Next.js              | 16.3.2  | Framework (App Router, Static Export)              |
-| React                | 19.2.8  | Librería de UI                                     |
-| Tailwind CSS         | v4      | Estilos (utility-first via `@tailwindcss/postcss`) |
-| TypeScript           | ^5      | Tipado estático                                    |
-| Web3Forms            | —       | Procesamiento de formularios (API)                 |
-| Cloudflare Turnstile | —       | Anti-bot/spam invisible                            |
+| Tecnología   | Versión | Propósito                                          |
+| ------------ | ------- | -------------------------------------------------- |
+| Next.js      | 16.3.2  | Framework (App Router, Static Export)              |
+| React        | 19.2.8  | Librería de UI                                     |
+| Tailwind CSS | v4      | Estilos (utility-first via `@tailwindcss/postcss`) |
+| TypeScript   | ^5      | Tipado estático                                    |
+
+> El canal de contacto es **WhatsApp** (enlaces `wa.me`); no hay formularios ni backend.
 
 ## Inicio Rápido
 
@@ -34,12 +34,10 @@ Copiar `.env.example` a `.env.local` y configurar:
 cp .env.example .env.local
 ```
 
-| Variable                         | Descripción                                                                                                       |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`           | URL del sitio (para Open Graph / metadataBase)                                                                    |
-| `NEXT_PUBLIC_WEB3FORMS_KEY`      | Clave pública de Web3Forms                                                                                        |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Site key de Cloudflare Turnstile                                                                                  |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER`    | Número WhatsApp internacional sin `+` (ej. `573001234567`). Si se omite, no se renderizan los enlaces de WhatsApp |
+| Variable                      | Descripción                                                                                                       |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`        | URL del sitio (para Open Graph / metadataBase)                                                                    |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Número WhatsApp internacional sin `+` (ej. `573001234567`). Si se omite, no se renderizan los enlaces de WhatsApp |
 
 ### Desarrollo
 

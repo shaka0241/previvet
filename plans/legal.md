@@ -4,6 +4,8 @@
 > Severidades: 🔴 Riesgo legal alto · 🟠 Deber de implementar · 🟡 Mejora recomendada
 > ⚠️ Este informe identifica riesgos y propone remediation; la redacción jurídica definitiva requiere validación de counsel local según país objetivo.
 
+> **🔄 Actualización 2026-08-23:** formulario, Web3Forms y Turnstile eliminados — los hallazgos sobre consentimiento del formulario, transferencia a Web3Forms y aviso de Turnstile quedan resueltos. Pendiente revisar tratamiento de datos dentro de conversaciones WhatsApp en la política.
+
 **Verificado previamente:** sin cookies ni analytics en todo el sitio (grep 0 resultados); Google Fonts self-hosted (evita la problemática de las sentencias CJUE sobre fonts).
 
 ## 🔴 1. Ausencia total de política de privacidad y consentimiento
