@@ -4,12 +4,12 @@ Landing page estática para **Nutravit ADE3 Plus**, un núcleo nutricional de al
 
 ## Stack Tecnológico
 
-| Tecnología           | Versión | Propósito                                          |
-| -------------------- | ------- | -------------------------------------------------- |
-| Next.js              | 16.3.2  | Framework (App Router, Static Export)              |
-| React                | 19.2.8  | Librería de UI                                     |
-| Tailwind CSS         | v4      | Estilos (utility-first via `@tailwindcss/postcss`) |
-| TypeScript           | ^5      | Tipado estático                                    |
+| Tecnología   | Versión | Propósito                                          |
+| ------------ | ------- | -------------------------------------------------- |
+| Next.js      | 16.3.2  | Framework (App Router, Static Export)              |
+| React        | 19.2.8  | Librería de UI                                     |
+| Tailwind CSS | v4      | Estilos (utility-first via `@tailwindcss/postcss`) |
+| TypeScript   | ^5      | Tipado estático                                    |
 
 > El canal de contacto es **WhatsApp** (enlaces `wa.me`); no hay formularios ni backend.
 

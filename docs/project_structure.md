@@ -53,15 +53,15 @@ previvet/
 
 ## 2. Convenciones Clave
 
-| Aspecto                | Decisión                                                                                   |
-| ---------------------- | ------------------------------------------------------------------------------------------ |
-| **Framework**          | Next.js 16 (App Router)                                                                    |
-| **Modo de salida**     | `output: "export"` — genera archivos estáticos en `/out`                                   |
-| **Estilos**            | Tailwind CSS v4 vía `@tailwindcss/postcss` + `@theme inline`                               |
-| **Fuentes**            | `next/font/google`: Inter (body) y Montserrat (headings)                                   |
-| **Contenido**          | Centralizado en `src/content/data.ts` (no CMS)                                             |
-| **Tipado**             | Interfaces en `src/types/index.ts`                                                         |
-| **Contacto**           | WhatsApp vía `wa.me` (`lib/site.ts`) + `NEXT_PUBLIC_WHATSAPP_NUMBER`                       |
-| **SEO**                | `metadata` export en layout + JSON-LD (`Product` schema)                                   |
-| **Componentes client** | `"use client"` solo donde hay estado: `navbar.tsx`, `species-tabs.tsx`                     |
-| **Path alias**         | `@/*` → `./src/*`                                                                          |
+| Aspecto                | Decisión                                                               |
+| ---------------------- | ---------------------------------------------------------------------- |
+| **Framework**          | Next.js 16 (App Router)                                                |
+| **Modo de salida**     | `output: "export"` — genera archivos estáticos en `/out`               |
+| **Estilos**            | Tailwind CSS v4 vía `@tailwindcss/postcss` + `@theme inline`           |
+| **Fuentes**            | `next/font/google`: Inter (body) y Montserrat (headings)               |
+| **Contenido**          | Centralizado en `src/content/data.ts` (no CMS)                         |
+| **Tipado**             | Interfaces en `src/types/index.ts`                                     |
+| **Contacto**           | WhatsApp vía `wa.me` (`lib/site.ts`) + `NEXT_PUBLIC_WHATSAPP_NUMBER`   |
+| **SEO**                | `metadata` export en layout + JSON-LD (`Product` schema)               |
+| **Componentes client** | `"use client"` solo donde hay estado: `navbar.tsx`, `species-tabs.tsx` |
+| **Path alias**         | `@/*` → `./src/*`                                                      |

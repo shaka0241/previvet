@@ -47,8 +47,8 @@ El proyecto utiliza la nueva API de Tailwind v4 con el plugin PostCSS (`@tailwin
 
 ## 2. Contacto vía WhatsApp (Sin Backend Propio)
 
-| Servicio            | Propósito                                        |
-| ------------------- | ------------------------------------------------ |
+| Servicio               | Propósito                                     |
+| ---------------------- | --------------------------------------------- |
 | **WhatsApp (`wa.me`)** | Único canal de contacto y conversión de leads |
 
 **Implementación:** No existen formularios ni servicios de terceros para contacto. La función `whatsappUrl()` en [`site.ts`](file:///Users/albertorojas/proyectos/previvet/src/lib/site.ts) construye enlaces `https://wa.me/<número>?text=<mensaje>` a partir de la variable de entorno `NEXT_PUBLIC_WHATSAPP_NUMBER`. Si la variable no está definida, los botones/enlaces de WhatsApp no se renderizan. El mensaje inicial es configurable vía `WHATSAPP_DEFAULT_MESSAGE`.
