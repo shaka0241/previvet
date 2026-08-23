@@ -16,14 +16,36 @@
 
 ## Fase B — Configuración de plataformas (requiere acceso a dashboards)
 
-- [ ] **B1. Vercel → Environment Variables**: configurar las 4 variables (`NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_WEB3FORMS_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `NEXT_PUBLIC_WHATSAPP_NUMBER`) y redesplegar. **🚨 El formulario está inoperativo en producción hoy.**
-- [ ] **B2. Dashboard Web3Forms**: exigir validación Turnstile server-side, activar spam filter y límite de envíos por período. *(ciberseguridad 🟠 #3)*
-- [ ] **B3. Verificación post-deploy** con `npm run verify:deploy` + curl de headers y presencia de la UUID esperada en chunks (comandos en `plans/ciberseguridad.md`).
+- [ ] **B0. Cloudflare Turnstile — crear el widget** ([dash.cloudflare.com](https://dash.cloudflare.com/?to=/:account/turnstile) → Add site):
+  - Domain: `vetlinenutrition.vercel.app` (+ dominio propio si lo habrá)
+  - Widget mode: **Managed**
+  - Guardar **Site Key** (pública → Vercel) y **Secret Key** (→ Web3Forms en B2)
+- [ ] **B2-pre. Web3Forms — endurecer** ([web3forms.com](https://docs.web3forms.com), settings del access key):
+  - Activar **Turnstile validation** y pegar ahí la Secret Key de Turnstile (cierra el vector de spam 🟠 #3 del informe)
+  - Activar **spam filter** y rate limiting si el plan los ofrece
+- [ ] **B1. Vercel → Settings → Environment Variables** (marcar Production + Preview):
+
+  | Variable | Valor |
+  |---|---|
+  | `NEXT_PUBLIC_SITE_URL` | `https://vetlinenutrition.vercel.app` |
+  | `NEXT_PUBLIC_WEB3FORMS_KEY` | access key de Web3Forms |
+  | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Site Key pública de Turnstile |
+  | `NEXT_PUBLIC_WHATSAPP_NUMBER` | número internacional sin `+` (ej. `573001234567`) — opcional hasta tener el definitivo |
+
+- [ ] **B1-bis. Redesplegar**: Deployments → ⋯ → Redeploy (las `NEXT_PUBLIC_*` se hornean en build; sin esto siguen sin efecto). Los headers de `vercel.json` se activan con este mismo deploy.
+- [ ] **B3. Verificación post-deploy**:
+  ```bash
+  npm run verify:deploy   # compresión brotli OK
+  curl -sI https://vetlinenutrition.vercel.app/ | grep -iE 'content-security|x-frame|x-content|referrer'
+  curl -s https://vetlinenutrition.vercel.app/ | grep -o 'cf-turnstile\|access_key" value="[^"]'
+  ```
+  Esperado: headers presentes, `value="<uuid>"` real y `cf-turnstile` renderizado. Probar un envío real del formulario end-to-end.
 
 ## Fase C — Legal documental (requiere datos del cliente + counsel local)
 
 - [ ] **C1. Definir país objetivo principal** (placeholder +57 sugiere Colombia/SIC) y recopilar: razón social completa, NIT/RUC, dirección, email para derechos ARCO-P.
-- [ ] **C2. Crear `/politica-de-privacidad`** con: identidad del responsable, finalidades (gestión de solicitud + contacto comercial), encargados (Web3Forms, Cloudflare), declaración "sin cookies de seguimiento", plazos de retención, derechos ARCO-P y canal de solicitudes.
+- [ ] **C1-bis. Llenar `data.ts → legalInfo`** con esos datos — el bloque ARCO-P del footer se renderiza automáticamente.
+- [ ] **C2. Crear `/politica-de-privacidad`** con: identidad del responsable, finalidades (gestión de solicitud + contacto comercial por teléfono/email/WhatsApp), encargados (ya centralizados en `data.ts → privacyPolicyRefs`: Web3Forms y Cloudflare), declaración "sin cookies de seguimiento", plazos de retención, derechos ARCO-P y canal de solicitudes.
 - [ ] **C3. Checkbox obligatorio de aceptación** en el formulario, vinculado a la política (label con `<Link>` a `/politica-de-privacidad`, validación en `validateContactForm`).
 - [ ] **C4. Validación de counsel local** según país (Colombia: textos SIC / Ecuador: SUPIMPA / México: aviso de privacidad integral / Perú: plazos ARCO).
 

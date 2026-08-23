@@ -3,6 +3,13 @@
 > Informe generado por el comité de 5 agentes especialistas el 2026-08-22.
 > Cada informe completo vive en su propio archivo de esta carpeta.
 
+## ⏳ Pendiente al retomar (ver `acciones-legal-seguridad.md`)
+
+1. **Fase B — Dashboards** (🚨 prioridad: el formulario está inoperativo en producción):
+   Turnstile widget → endurecer Web3Forms → env vars en Vercel → redeploy → verificación (`npm run verify:deploy` + curls).
+2. **Fase C — Legal**: pedir al cliente país objetivo + razón social/NIT/dirección/email ARCO-P → `/politica-de-privacidad` + checkbox de consentimiento (+ validación counsel local).
+3. **Del cliente también**: fotografía producto/animales, testimonios, MOQ/países, registros sanitarios ICA/Senasa (se renderizan solos al llenar `data.ts`).
+
 ## Índice de informes
 
 | Archivo | Agente | Hallazgos |
