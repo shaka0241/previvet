@@ -3,6 +3,8 @@
 > Agente: especialista en accesibilidad web. Auditoría del 2026-08-22.
 > Severidades: 🔴 Crítica · 🟠 Alta · 🟡 Media
 
+> **🔄 Actualización 2026-08-23:** el formulario de contacto fue eliminado; las barreras que lo involucran quedan resueltas/obsoletas.
+
 ## 1. Contraste insuficiente del verde primario `#0db14b` — 🔴 CRÍTICA
 - **Problema:** el token de `globals.css:11` tiene ~2.8:1 contra blanco (mínimo 3:1 para texto grande). Fallos en: `species-tabs.tsx:21` (tab activa `bg-primary text-white`), `species-tabs.tsx:22` (tab inactiva `text-primary` sobre blanco), `presentations.tsx:7-16` (texto blanco sobre gradiente primary), `contact-form.tsx:89` (mensaje éxito sobre tarjeta blanca), `benefit-card.tsx:34` y `science.tsx:19` (iconos/"+" verdes, fallan 1.4.11), y `hero.tsx:8` (`preTitle` verde 14px sobre navy ≈4.27:1).
 - **WCAG:** 1.4.3 Contrast (Minimum) AA · 1.4.11 Non-text Contrast AA.

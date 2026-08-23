@@ -3,6 +3,8 @@
 > Agente: especialista en rendimiento web. Auditoría del 2026-08-22.
 > Severidades: 🔴 Alta · 🟡 Media · 🟢 Baja
 
+> **🔄 Actualización 2026-08-23:** formulario y Turnstile eliminados; la idea 3 (Turnstile lazyOnload) queda obsoleta. El bundle se redujo al retirarse `lib/contact.ts` y `contact-form.tsx`.
+
 ## 1. Logo JPEG sobredimensionado servido completo — 🔴 ALTA
 - **Problema:** `public/images/previvetlogo.jpeg` pesa 71,872 B y mide 1080×1080 px, pero se renderiza a 40×40 (`src/components/sections/navbar.tsx:21-27`) y es OG image (`src/app/layout.tsx:42`). Con `images.unoptimized: true` (`next.config.ts:6`) se sirve el archivo íntegro.
 - **Propuesta:** Generar WebP/AVIF en 96×96 (nav) y 512×512 (OG); bajaría a <5 KB. Referencia en `src/content/data.ts:12`.

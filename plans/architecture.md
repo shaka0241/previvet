@@ -3,6 +3,8 @@
 > Agente: especialista en arquitectura frontend y calidad de código. Auditoría del 2026-08-22.
 > Severidades: 🔴 Alta · 🟡 Media · 🟢 Baja
 
+> **🔄 Actualización 2026-08-23:** el formulario fue eliminado (`contact-form.tsx`, `lib/contact.ts`); la idea 3 queda obsoleta/resuelta.
+
 ## 1. Botón primario duplicado ×4 + merges frágiles de clases — 🔴 Alta
 - **Problema:** El estilo primario se copia-pega en cuatro sitios en vez de reutilizar `PrimaryButton`: `buttons.tsx:16` (`bg-secondary text-white font-bold py-3 px-6 rounded-md hover:bg-secondary/90 transition-colors`), `navbar.tsx:41-45` (CTA "Cotizar" escritorio), `navbar.tsx:72-77` (versión móvil) y `contact-form.tsx:83` (submit). Agravante: `hero.tsx:21` pasa overrides (`text-white border-white hover:bg-white/10`) a `SecondaryButton`, que concatena `className` sin resolver conflictos (`buttons.tsx:35`) → clases contradictorias coexisten (`text-primary` vs `text-white`) y gana el orden de la hoja de estilos, no la intención del código.
 - **Propuesta:** Usar `PrimaryButton` en los CTAs del navbar y en el submit del formulario (añadir props `as="button"` y `size`). Introducir helper `cn()` basado en tailwind-merge para que los overrides pisen clases de forma predecible. Un solo punto de verdad para el estilo primario.

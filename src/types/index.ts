@@ -38,24 +38,6 @@ export interface SectionTitles {
   presentations: string;
 }
 
-export interface ContactFormContent {
-  labels: { name: string; phone: string; email: string; message: string };
-  placeholders: {
-    name: string;
-    phone: string;
-    email: string;
-    message: string;
-  };
-  submitLabel: string;
-  submittingLabel: string;
-  privacyNote: string;
-  successTitle: string;
-  successMessage: string;
-  successWhatsappCta: string;
-  errorBeforeLink: string;
-  errorLinkText: string;
-}
-
 export interface FooterContent {
   intro: string;
   whatsappCta: string;

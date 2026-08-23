@@ -83,13 +83,13 @@ Implementado en [`science.tsx`](file:///Users/albertorojas/proyectos/previvet/sr
 - Ícono animado: `transition-transform duration-300 group-open:rotate-45`
 - Sin dependencia de JavaScript para la funcionalidad de apertura/cierre
 
-### Formulario de Contacto
+### CTA de WhatsApp (Contacto)
 
-Implementado en [`contact-form.tsx`](file:///Users/albertorojas/proyectos/previvet/src/components/sections/contact-form.tsx):
+Implementado en [`footer.tsx`](file:///Users/albertorojas/proyectos/previvet/src/components/sections/footer.tsx) y [`hero.tsx`](file:///Users/albertorojas/proyectos/previvet/src/components/sections/hero.tsx) — no hay formulario de contacto:
 
-- Inputs: `border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary`
-- Manejo de estados: `idle` → `sending` → `success` / `error`
-- Integración con Web3Forms y Cloudflare Turnstile (carga lazy)
+- Botón primario con ícono: `<WhatsAppIcon className="h-5 w-5" />` + texto, usando las clases de `PrimaryButton`
+- Enlace externo: `https://wa.me/<número>?text=<mensaje>` generado por `whatsappUrl()` en [`site.ts`](file:///Users/albertorojas/proyectos/previvet/src/lib/site.ts), con `target="_blank" rel="noopener noreferrer"`
+- Si `NEXT_PUBLIC_WHATSAPP_NUMBER` no está definida, el botón no se renderiza (en el hero se muestra el CTA secundario como ancla a `#contacto`)
 
 ### Barra de Navegación (Navbar)
 

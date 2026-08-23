@@ -23,7 +23,7 @@ _Componente: [`hero.tsx`](file:///Users/albertorojas/proyectos/previvet/src/comp
 - **Título Principal (H1):** Nutrición Integral que Transforma tu Ganadería.
 - **Subtítulo:** Nutravit ADE3 Plus no es solo un suplemento, es un núcleo nutricional de alta palatabilidad. Garantiza asimilación del 100%, maximiza la conversión alimenticia y asegura tu rentabilidad.
 - **CTA Primario:** "Solicitar Cotización" → `#contacto`
-- **CTA Secundario:** "Hablar con un Asesor" → `#contacto`
+- **CTA Secundario:** "Hablar con un Asesor" → enlace directo a WhatsApp (`wa.me`); sin número configurado, cae a `#contacto`
 - **Fondo:** Gradiente `bg-gradient-to-b from-secondary to-[#2a4a7f]`
 
 ---
@@ -101,12 +101,11 @@ _Componente: [`presentations.tsx`](file:///Users/albertorojas/proyectos/previvet
 
 ---
 
-## 6. Footer (Llamado a la Acción + Formulario)
+## 6. Footer (Llamado a la Acción + WhatsApp)
 
-_Componentes: [`footer.tsx`](file:///Users/albertorojas/proyectos/previvet/src/components/sections/footer.tsx) + [`contact-form.tsx`](file:///Users/albertorojas/proyectos/previvet/src/components/sections/contact-form.tsx)_
+_Componente: [`footer.tsx`](file:///Users/albertorojas/proyectos/previvet/src/components/sections/footer.tsx)_
 
 - **Título:** ¿Listo para llevar tu producción al siguiente nivel?
-- **Subtexto:** Déjanos tus datos y un asesor de Vetline Nutrition te contactará con una cotización personalizada.
-- **Campos del formulario:** Nombre, Teléfono/WhatsApp, Correo electrónico, Mensaje
-- **Integración:** Web3Forms (API REST) + Cloudflare Turnstile (anti-bot)
+- **Subtexto:** Escríbenos por WhatsApp y un asesor de Vetline Nutrition te responderá con una cotización personalizada.
+- **CTA:** "Escríbenos por WhatsApp" → `wa.me` con mensaje prellenado ("Hola, quiero cotizar Nutravit ADE3 Plus para mi producción.")
 - **Copyright:** © {año} Vetline Nutrition. Todos los derechos reservados.

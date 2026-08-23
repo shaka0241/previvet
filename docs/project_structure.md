@@ -30,8 +30,7 @@ previvet/
 │   │   │   ├── species-tabs.tsx     # Pestañas interactivas (Bovinos / Porcinos)
 │   │   │   ├── science.tsx          # Acordeón de ingredientes (<details>)
 │   │   │   ├── presentations.tsx    # Presentación y dosificación
-│   │   │   ├── contact-form.tsx     # Formulario Web3Forms + Cloudflare Turnstile
-│   │   │   └── footer.tsx           # Footer con CTA y formulario de contacto
+│   │   │   └── footer.tsx           # Footer con CTA de contacto vía WhatsApp
 │   │   └── ui/                      # Componentes base reutilizables
 │   │       ├── benefit-card.tsx     # Tarjeta de beneficio con ícono SVG inline
 │   │       └── buttons.tsx          # PrimaryButton y SecondaryButton (wrappers de Link)
@@ -62,7 +61,7 @@ previvet/
 | **Fuentes**            | `next/font/google`: Inter (body) y Montserrat (headings)                                   |
 | **Contenido**          | Centralizado en `src/content/data.ts` (no CMS)                                             |
 | **Tipado**             | Interfaces en `src/types/index.ts`                                                         |
-| **Formularios**        | Web3Forms (API) + Cloudflare Turnstile (anti-spam)                                         |
+| **Contacto**           | WhatsApp vía `wa.me` (`lib/site.ts`) + `NEXT_PUBLIC_WHATSAPP_NUMBER`                       |
 | **SEO**                | `metadata` export en layout + JSON-LD (`Product` schema)                                   |
-| **Componentes client** | `"use client"` solo donde hay estado: `navbar.tsx`, `species-tabs.tsx`, `contact-form.tsx` |
+| **Componentes client** | `"use client"` solo donde hay estado: `navbar.tsx`, `species-tabs.tsx`                     |
 | **Path alias**         | `@/*` → `./src/*`                                                                          |

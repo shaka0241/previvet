@@ -2,6 +2,8 @@
 
 > Agente: especialista en diseño UI/UX frontend. Auditoría del 2026-08-22.
 
+> **🔄 Actualización 2026-08-23:** el formulario de contacto fue eliminado; todo el contacto es vía WhatsApp (ideas 3 y 4 quedan resueltas/obsoletas).
+
 ## 🔴 PRIORIDAD ALTA
 
 ### 1. El CTA primario del hero es invisible sobre su propio fondo

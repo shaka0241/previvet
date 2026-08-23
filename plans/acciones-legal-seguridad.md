@@ -3,6 +3,8 @@
 > Derivado de `plans/legal.md` y `plans/ciberseguridad.md` (auditorías del 2026-08-22).
 > Estado: **PENDIENTE DE APROBACIÓN** — nada de esto se ha ejecutado todavía.
 
+> **🔄 Actualización 2026-08-23:** el formulario de contacto fue eliminado (Web3Forms y Turnstile incluidos); todo el contacto es vía WhatsApp. Las tareas B0, B2-pre y C3 quedan obsoletas; B1 pierde dos variables; C2 ya no menciona encargados de formulario.
+
 ## Fase A — Técnico inmediato (sin dependencias externas) ✅ Completada (2026-08-22)
 
 - [x] **A1. `vercel.json` con headers de seguridad** — `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` y CSP:
@@ -12,41 +14,36 @@
 - [x] **A2. Micro-copy de finalidad corregido** (`data.ts → contactForm.privacyNote`): *"…gestionar tu solicitud y contactarte por teléfono, email o WhatsApp con fines comerciales."* — verificado en HTML exportado.
 - [x] **A3. Higiene anti-abuso** — email ahora obligatorio (validación + atributo), `maxLength`: name 80, phone 20, email 120, message 500. Test actualizado (16/16 ✓).
 - [x] **A4. Bloque legal en footer** — estructura condicional lista (`data.ts → legalInfo`); se renderiza automáticamente al llenar razón social/NIT/dirección/email ARCO-P. Actualmente oculto (datos pendientes del cliente).
-- [x] **A5. Referencias de política centralizadas** (`data.ts → privacyPolicyRefs`): Web3Forms, Cloudflare Turnstile y declaración "sin cookies de seguimiento" listos para la página `/politica-de-privacidad` de la Fase C.
+- [x] ~~**A5. Referencias de política centralizadas** (`data.ts → privacyPolicyRefs`)~~ — Web3Forms/Turnstile eliminados de la lista (2026-08-23, sin formulario no hay encargados web); declaración "sin cookies" vigente para `/politica-de-privacidad`.
 
 ## Fase B — Configuración de plataformas (requiere acceso a dashboards)
 
-- [ ] **B0. Cloudflare Turnstile — crear el widget** ([dash.cloudflare.com](https://dash.cloudflare.com/?to=/:account/turnstile) → Add site):
-  - Domain: `vetlinenutrition.vercel.app` (+ dominio propio si lo habrá)
-  - Widget mode: **Managed**
-  - Guardar **Site Key** (pública → Vercel) y **Secret Key** (→ Web3Forms en B2)
-- [ ] **B2-pre. Web3Forms — endurecer** ([web3forms.com](https://docs.web3forms.com), settings del access key):
-  - Activar **Turnstile validation** y pegar ahí la Secret Key de Turnstile (cierra el vector de spam 🟠 #3 del informe)
-  - Activar **spam filter** y rate limiting si el plan los ofrece
+- [x] ~~**B0. Cloudflare Turnstile — crear el widget**~~ — **Obsoleto (2026-08-23):** formulario eliminado, no hay Turnstile.
+- [x] ~~**B2-pre. Web3Forms — endurecer**~~ — **Obsoleto (2026-08-23):** Web3Forms eliminado.
 - [ ] **B1. Vercel → Settings → Environment Variables** (marcar Production + Preview):
 
   | Variable | Valor |
   |---|---|
   | `NEXT_PUBLIC_SITE_URL` | `https://vetlinenutrition.vercel.app` |
-  | `NEXT_PUBLIC_WEB3FORMS_KEY` | access key de Web3Forms |
-  | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Site Key pública de Turnstile |
   | `NEXT_PUBLIC_WHATSAPP_NUMBER` | número internacional sin `+` (ej. `573001234567`) — opcional hasta tener el definitivo |
+
+  *(2026-08-23: retiradas `NEXT_PUBLIC_WEB3FORMS_KEY` y `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, ya sin uso.)*
 
 - [ ] **B1-bis. Redesplegar**: Deployments → ⋯ → Redeploy (las `NEXT_PUBLIC_*` se hornean en build; sin esto siguen sin efecto). Los headers de `vercel.json` se activan con este mismo deploy.
 - [ ] **B3. Verificación post-deploy**:
   ```bash
   npm run verify:deploy   # compresión brotli OK
   curl -sI https://vetlinenutrition.vercel.app/ | grep -iE 'content-security|x-frame|x-content|referrer'
-  curl -s https://vetlinenutrition.vercel.app/ | grep -o 'cf-turnstile\|access_key" value="[^"]'
+  curl -s https://vetlinenutrition.vercel.app/ | grep -o 'wa.me'
   ```
-  Esperado: headers presentes, `value="<uuid>"` real y `cf-turnstile` renderizado. Probar un envío real del formulario end-to-end.
+  Esperado: headers presentes y enlaces `wa.me` renderizados cuando el número esté configurado. Probar un contacto real vía WhatsApp.
 
 ## Fase C — Legal documental (requiere datos del cliente + counsel local)
 
 - [ ] **C1. Definir país objetivo principal** (placeholder +57 sugiere Colombia/SIC) y recopilar: razón social completa, NIT/RUC, dirección, email para derechos ARCO-P.
 - [ ] **C1-bis. Llenar `data.ts → legalInfo`** con esos datos — el bloque ARCO-P del footer se renderiza automáticamente.
-- [ ] **C2. Crear `/politica-de-privacidad`** con: identidad del responsable, finalidades (gestión de solicitud + contacto comercial por teléfono/email/WhatsApp), encargados (ya centralizados en `data.ts → privacyPolicyRefs`: Web3Forms y Cloudflare), declaración "sin cookies de seguimiento", plazos de retención, derechos ARCO-P y canal de solicitudes.
-- [ ] **C3. Checkbox obligatorio de aceptación** en el formulario, vinculado a la política (label con `<Link>` a `/politica-de-privacidad`, validación en `validateContactForm`).
+- [ ] **C2. Crear `/politica-de-privacidad`** con: identidad del responsable, finalidades (contacto comercial vía WhatsApp), declaración "sin cookies de seguimiento", plazos de retención, derechos ARCO-P y canal de solicitudes. *(2026-08-23: sin formulario no hay encargados web que declarar; valorar mención al tratamiento de datos en conversaciones de WhatsApp.)*
+- [x] ~~**C3. Checkbox obligatorio de aceptación** en el formulario~~ — **Obsoleto (2026-08-23):** sin formulario no hay consentimiento web que gestionar.
 - [ ] **C4. Validación de counsel local** según país (Colombia: textos SIC / Ecuador: SUPIMPA / México: aviso de privacidad integral / Perú: plazos ARCO).
 
 ## Dependencias y orden sugerido

@@ -3,6 +3,8 @@
 > Agente: Arquitecto de Ciberseguridad. Auditoría del 2026-08-22 con verificación real contra producción (curl).
 > Severidades: 🔴 Crítico · 🟠 Alto · 🟡 Medio · ⚪ Informativo
 
+> **🔄 Actualización 2026-08-23:** formulario, Web3Forms y Turnstile eliminados. Los hallazgos 🔴 #1 (credenciales), 🟠 Web3Forms extraíble y 🟡 Turnstile SRI/CSP quedan resueltos por obsolescencia; la superficie de contacto ahora es solo enlaces `wa.me`.
+
 ## 🔴 Credenciales NEXT_PUBLIC ausentes en producción: formulario y Turnstile inoperativos
 - **Evidencia:** `curl -s https://vetlinenutrition.vercel.app/_next/static/chunks/3wp6q_6z9gqzr.js | grep WEB3FORMS` → referencia runtime sin valor; HTML prod: `name="access_key" value=""`, 0 ocurrencias de `cf-turnstile`.
 - **Vector:** disponibilidad — `submitContact` (`src/lib/contact.ts:61`) retorna `{ok:false}` con clave vacía; sin widget, el control anti-bot tampoco existe. **El formulario no funciona hoy en producción.**

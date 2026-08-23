@@ -1,6 +1,5 @@
 import type {
   BenefitCard,
-  ContactFormContent,
   Dosage,
   FaqItem,
   FooterContent,
@@ -32,32 +31,8 @@ export const sectionTitles: SectionTitles = {
   presentations: "Presentación y Dosificación",
 };
 
-export const contactForm: ContactFormContent = {
-  labels: {
-    name: "Nombre",
-    phone: "Teléfono / WhatsApp",
-    email: "Correo electrónico",
-    message: "Mensaje",
-  },
-  placeholders: {
-    name: "Tu nombre",
-    phone: "+57 300 123 4567",
-    email: "correo@empresa.com",
-    message: "Cuéntanos sobre tu producción (especie, número de animales...)",
-  },
-  submitLabel: "Enviar solicitud",
-  submittingLabel: "Enviando...",
-  privacyNote:
-    "Tus datos solo se usan para gestionar tu solicitud y contactarte por teléfono, email o WhatsApp con fines comerciales.",
-  successTitle: "¡Solicitud enviada!",
-  successMessage: "Un asesor te contactará en menos de 24 horas.",
-  successWhatsappCta: "Respuesta inmediata por WhatsApp",
-  errorBeforeLink: "Hubo un error al enviar. Inténtalo de nuevo",
-  errorLinkText: "escríbenos por WhatsApp",
-};
-
 export const footerContent: FooterContent = {
-  intro: `Déjanos tus datos y un asesor de Vetline Nutrition te contactará con una cotización personalizada.`,
+  intro: `Escríbenos por WhatsApp y un asesor de Vetline Nutrition te responderá con una cotización personalizada.`,
   whatsappCta: "Escríbenos por WhatsApp",
 };
 
@@ -86,7 +61,7 @@ export const howToBuy: HowToBuyContent = {
     {
       title: "Solicita tu cotización",
       description:
-        "Completa el formulario o escríbenos por WhatsApp contándonos la especie y el número de animales de tu producción.",
+        "Escríbenos por WhatsApp contándonos la especie y el número de animales de tu producción.",
     },
     {
       title: "Recibe tu proforma",
@@ -264,7 +239,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "¿Cómo solicito una cotización?",
     answer:
-      "Completa el formulario de contacto o escríbenos directamente por WhatsApp. Un asesor de Vetline Nutrition te responderá con una cotización personalizada en menos de 24 horas.",
+      "Escríbenos directamente por WhatsApp. Un asesor de Vetline Nutrition te responderá con una cotización personalizada en menos de 24 horas.",
   },
 ];
 
@@ -282,10 +257,7 @@ export const legalInfo: LegalInfo = {
 };
 
 export const privacyPolicyRefs: PrivacyPolicyRefs = {
-  processors: [
-    "Web3Forms (procesamiento del formulario de contacto)",
-    "Cloudflare Turnstile (protección anti-spam y anti-fraude)",
-  ],
+  processors: [],
   noCookiesStatement:
     "Este sitio no utiliza cookies de seguimiento ni herramientas de analítica.",
 };
