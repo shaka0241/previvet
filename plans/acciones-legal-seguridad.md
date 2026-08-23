@@ -3,15 +3,16 @@
 > Derivado de `plans/legal.md` y `plans/ciberseguridad.md` (auditorías del 2026-08-22).
 > Estado: **PENDIENTE DE APROBACIÓN** — nada de esto se ha ejecutado todavía.
 
-## Fase A — Técnico inmediato (sin dependencias externas)
+## Fase A — Técnico inmediato (sin dependencias externas) ✅ Completada (2026-08-22)
 
-- [ ] **A1. `vercel.json` con headers de seguridad** — `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` y CSP:
-  `default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'`
-  *(Fuente: ciberseguridad 🟠 #2. Verificar que la CSP no rompa el formulario/Turnstile tras el deploy.)*
-- [ ] **A2. Corregir micro-copy de finalidad** (`data.ts → contactForm.privacyNote`) — nuevo texto: *"Tus datos solo se usan para gestionar tu solicitud y contactarte por teléfono, email o WhatsApp con fines comerciales."* *(legal 🟠 #3)*
-- [ ] **A3. Higiene anti-abuso del formulario** — email requerido con formato (quitar opcionalidad en `lib/contact.ts`), `maxLength={500}` en textarea y `maxLength` en name/phone. *(ciberseguridad ⚪)*
-- [ ] **A4. Bloque legal en footer** (patrón condicional como `howToBuy`) — razón social, NIT/RUC, dirección y email para derechos ARCO-P; se renderiza al llenar `data.ts → siteConfig/legalInfo`. Requiere datos del cliente pero la estructura se puede dejar lista. *(legal 🟡 #5)*
-- [ ] **A5. Mención de Cloudflare y Web3Forms preparada** en el contenido centralizado (`data.ts`) para que la futura política los referencie sin tocar JSX. *(legal 🟠 #4)*
+- [x] **A1. `vercel.json` con headers de seguridad** — `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` y CSP:
+  `default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://challenges.cloudflare.com; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'`
+  ✅ Ejecutado. *Nota: `'unsafe-inline'` en script-src es inevitable con export estático (los payloads RSC de Next van inline y los nonces requieren SSR por petición). Se compensa restringiendo hosts externos.*
+  ⚠️ Pendiente B3: verificar contra producción que la CSP no rompe formulario/Turnstile.
+- [x] **A2. Micro-copy de finalidad corregido** (`data.ts → contactForm.privacyNote`): *"…gestionar tu solicitud y contactarte por teléfono, email o WhatsApp con fines comerciales."* — verificado en HTML exportado.
+- [x] **A3. Higiene anti-abuso** — email ahora obligatorio (validación + atributo), `maxLength`: name 80, phone 20, email 120, message 500. Test actualizado (16/16 ✓).
+- [x] **A4. Bloque legal en footer** — estructura condicional lista (`data.ts → legalInfo`); se renderiza automáticamente al llenar razón social/NIT/dirección/email ARCO-P. Actualmente oculto (datos pendientes del cliente).
+- [x] **A5. Referencias de política centralizadas** (`data.ts → privacyPolicyRefs`): Web3Forms, Cloudflare Turnstile y declaración "sin cookies de seguimiento" listos para la página `/politica-de-privacidad` de la Fase C.
 
 ## Fase B — Configuración de plataformas (requiere acceso a dashboards)
 

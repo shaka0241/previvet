@@ -17,8 +17,14 @@ describe("validateContactForm", () => {
     expect(validateContactForm(valid)).toEqual({});
   });
 
-  it("email es opcional", () => {
-    expect(validateContactForm({ ...valid, email: "" })).toEqual({});
+  it("rechaza email vacío (ahora es obligatorio)", () => {
+    const errors = validateContactForm({ ...valid, email: "" });
+    expect(errors.email).toBeTruthy();
+  });
+
+  it("rechaza nombre demasiado largo", () => {
+    const errors = validateContactForm({ ...valid, name: "A".repeat(81) });
+    expect(errors.name).toBeTruthy();
   });
 
   it("rechaza nombre demasiado corto", () => {

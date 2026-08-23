@@ -1,4 +1,9 @@
-import { footerCta, footerContent, siteConfig } from "@/content/data";
+import {
+  footerCta,
+  footerContent,
+  legalInfo,
+  siteConfig,
+} from "@/content/data";
 import { primaryButtonClasses } from "@/components/ui/buttons";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import { whatsappUrl } from "@/lib/site";
@@ -34,6 +39,33 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
+        {(legalInfo.legalName ||
+          legalInfo.taxId ||
+          legalInfo.address ||
+          legalInfo.arcoEmail) && (
+          <div className="mx-auto max-w-6xl px-4 pt-6 text-xs text-gray-400">
+            {legalInfo.legalName && (
+              <p>
+                {legalInfo.legalName}
+                {legalInfo.taxId ? ` — ${legalInfo.taxId}` : ""}
+              </p>
+            )}
+            {legalInfo.address && <p>{legalInfo.address}</p>}
+            {legalInfo.arcoEmail && (
+              <p>
+                Para ejercer tus derechos de protección de datos (acceso,
+                actualización, rectificación, supresión) escríbenos a{" "}
+                <a
+                  href={`mailto:${legalInfo.arcoEmail}`}
+                  className="underline hover:text-gray-200"
+                >
+                  {legalInfo.arcoEmail}
+                </a>
+                .
+              </p>
+            )}
+          </div>
+        )}
         <p className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-6 text-sm text-gray-300">
           © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos
           reservados.

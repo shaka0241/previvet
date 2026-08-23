@@ -5,6 +5,8 @@ import type {
   FaqItem,
   FooterContent,
   HowToBuyContent,
+  LegalInfo,
+  PrivacyPolicyRefs,
   ScienceBlock,
   SectionTitles,
   SiteConfig,
@@ -45,7 +47,8 @@ export const contactForm: ContactFormContent = {
   },
   submitLabel: "Enviar solicitud",
   submittingLabel: "Enviando...",
-  privacyNote: "Tus datos solo se usan para enviarte la cotización.",
+  privacyNote:
+    "Tus datos solo se usan para gestionar tu solicitud y contactarte por teléfono, email o WhatsApp con fines comerciales.",
   successTitle: "¡Solicitud enviada!",
   successMessage: "Un asesor te contactará en menos de 24 horas.",
   successWhatsappCta: "Respuesta inmediata por WhatsApp",
@@ -269,4 +272,20 @@ export const presentations = ["Balde", "Bolsa de 20 kg"];
 
 export const footerCta = {
   title: "¿Listo para llevar tu producción al siguiente nivel?",
+};
+
+export const legalInfo: LegalInfo = {
+  legalName: "",
+  taxId: "",
+  address: "",
+  arcoEmail: "",
+};
+
+export const privacyPolicyRefs: PrivacyPolicyRefs = {
+  processors: [
+    "Web3Forms (procesamiento del formulario de contacto)",
+    "Cloudflare Turnstile (protección anti-spam y anti-fraude)",
+  ],
+  noCookiesStatement:
+    "Este sitio no utiliza cookies de seguimiento ni herramientas de analítica.",
 };

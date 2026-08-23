@@ -73,6 +73,18 @@ export interface HowToBuyContent {
   registries: string[];
 }
 
+export interface LegalInfo {
+  legalName: string;
+  taxId: string;
+  address: string;
+  arcoEmail: string;
+}
+
+export interface PrivacyPolicyRefs {
+  processors: string[];
+  noCookiesStatement: string;
+}
+
 export interface FaqItem {
   question: string;
   answer: string;

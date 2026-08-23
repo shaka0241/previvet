@@ -36,7 +36,8 @@ export function validateContactForm(data: ContactFormData): ContactFieldErrors {
   if (data.name.length < 2) errors.name = "Ingresa tu nombre.";
   if (!PHONE_RE.test(data.phone))
     errors.phone = "Ingresa un teléfono válido (ej. +57 300 123 4567).";
-  if (data.email && !EMAIL_RE.test(data.email))
+  if (data.name.length > 80) errors.name = "Máximo 80 caracteres.";
+  if (!EMAIL_RE.test(data.email))
     errors.email = "Ingresa un correo electrónico válido.";
   if (data.message.length < 10)
     errors.message = "Cuéntanos un poco más sobre tu producción.";

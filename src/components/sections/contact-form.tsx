@@ -181,6 +181,7 @@ export default function ContactForm() {
               id="contact-name"
               name="name"
               required
+              maxLength={80}
               autoComplete="name"
               placeholder={contactForm.placeholders.name}
               aria-invalid={Boolean(errors.name)}
@@ -198,6 +199,7 @@ export default function ContactForm() {
               name="phone"
               type="tel"
               required
+              maxLength={20}
               autoComplete="tel"
               placeholder={contactForm.placeholders.phone}
               aria-invalid={Boolean(errors.phone)}
@@ -216,6 +218,8 @@ export default function ContactForm() {
             id="contact-email"
             name="email"
             type="email"
+            required
+            maxLength={120}
             autoComplete="email"
             placeholder={contactForm.placeholders.email}
             aria-invalid={Boolean(errors.email)}
@@ -234,6 +238,7 @@ export default function ContactForm() {
             name="message"
             rows={4}
             required
+            maxLength={500}
             placeholder={contactForm.placeholders.message}
             aria-invalid={Boolean(errors.message)}
             aria-describedby={describedBy("message")}
