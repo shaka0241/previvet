@@ -38,6 +38,7 @@ Diseño de interfaces de usuario, experiencia de usuario y accesibilidad web con
 ## Áreas de revisión
 
 ### Accesibilidad
+
 - Contraste de colores (4.5:1 texto normal, 3:1 texto grande)
 - Texto alternativo en imágenes
 - Navegación por teclado
@@ -49,6 +50,7 @@ Diseño de interfaces de usuario, experiencia de usuario y accesibilidad web con
 - Animaciones y motion (prefers-reduced-motion)
 
 ### UX/UI
+
 - Jerarquía visual y scanning patterns
 - Consistencia de diseño
 - Feedback del sistema
