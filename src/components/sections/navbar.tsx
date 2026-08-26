@@ -8,15 +8,18 @@ export default function Navbar() {
   const waHref = whatsappUrl();
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-white/90 shadow-sm backdrop-blur-md">
+    <nav className="fixed top-0 z-50 w-full bg-white/90 shadow-sm backdrop-blur-md py-2">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <a href="#inicio" className="flex items-center gap-2">
+        <a
+          href="#inicio"
+          className="absolute left-1/2 -translate-x-1/2 items-center gap-2 md:static md:translate-x-0"
+        >
           <Image
             src={siteConfig.logo}
             alt={`Inicio — ${siteConfig.name}`}
-            width={40}
-            height={40}
-            className="h-10 w-auto rounded-md"
+            width={64}
+            height={64}
+            className="h-16 w-auto rounded-md md:h-10"
           />
         </a>
 
@@ -48,7 +51,7 @@ export default function Navbar() {
           type="button"
           popoverTarget="menu-movil"
           aria-label="Abrir menú"
-          className="text-secondary p-2 md:hidden"
+          className="ml-auto p-2 text-secondary md:hidden"
         >
           <svg
             className="h-6 w-6"
