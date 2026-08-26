@@ -8,7 +8,7 @@ export default function Navbar() {
   const waHref = whatsappUrl();
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-white/90 shadow-sm backdrop-blur-md py-2">
+    <nav className="fixed top-0 z-50 w-full bg-white/90 py-2 shadow-sm backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <a
           href="#inicio"
@@ -51,7 +51,7 @@ export default function Navbar() {
           type="button"
           popoverTarget="menu-movil"
           aria-label="Abrir menú"
-          className="ml-auto p-2 text-secondary md:hidden"
+          className="text-secondary ml-auto p-2 md:hidden"
         >
           <svg
             className="h-6 w-6"
