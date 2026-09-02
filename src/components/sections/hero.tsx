@@ -9,8 +9,35 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="from-secondary bg-gradient-to-b to-[#2a4a7f] px-4 pt-32 pb-20 text-white"
+      className="relative isolate overflow-hidden bg-secondary px-4 pt-32 pb-20 text-white"
     >
+      <link
+        rel="preload"
+        as="image"
+        imageSrcSet="/images/hero_section_image_obscure-1280.webp 1280w, /images/hero_section_image_obscure-1920.webp 1920w, /images/hero_section_image_obscure.webp 2752w"
+        imageSizes="100vw"
+        fetchPriority="high"
+      />
+      <picture aria-hidden="true" className="absolute inset-0 -z-10">
+        <source
+          type="image/webp"
+          srcSet="/images/hero_section_image_obscure-1280.webp 1280w, /images/hero_section_image_obscure-1920.webp 1920w, /images/hero_section_image_obscure.webp 2752w"
+          sizes="100vw"
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/hero_section_image_obscure.jpeg"
+          alt=""
+          width={2752}
+          height={1536}
+          decoding="async"
+          className="h-full w-full object-cover object-center"
+        />
+      </picture>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-secondary/85 via-secondary/70 to-[#2a4a7f]/75"
+      />
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
         <p className="text-sm font-semibold tracking-widest text-green-400 uppercase">
           {hero.preTitle}
