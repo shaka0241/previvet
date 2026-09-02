@@ -36,16 +36,16 @@ export default function Hero() {
       </picture>
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-secondary/85 via-secondary/70 to-[#2a4a7f]/75"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-secondary/55 via-secondary/25 to-[#2a4a7f]/40"
       />
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
-        <p className="text-sm font-semibold tracking-widest text-green-400 uppercase">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center [text-shadow:0_1px_14px_rgba(0,0,0,0.55)]">
+        <p className="text-sm font-semibold tracking-widest text-green-300 uppercase drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
           {hero.preTitle}
         </p>
-        <h1 className="font-heading text-4xl leading-tight font-bold md:text-5xl">
+        <h1 className="font-heading text-4xl leading-tight font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] md:text-5xl">
           {hero.title}
         </h1>
-        <p className="max-w-2xl text-lg text-gray-100 md:text-xl">
+        <p className="max-w-2xl text-lg text-gray-50 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)] md:text-xl">
           {hero.subtitle}
         </p>
         <div className="mt-4 flex flex-col gap-4 sm:flex-row">
