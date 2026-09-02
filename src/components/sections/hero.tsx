@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative isolate overflow-hidden bg-secondary px-4 pt-32 pb-20 text-white"
+      className="bg-secondary relative isolate overflow-hidden px-4 pt-32 pb-20 text-white"
     >
       <link
         rel="preload"
@@ -36,7 +36,7 @@ export default function Hero() {
       </picture>
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-secondary/55 via-secondary/25 to-[#2a4a7f]/40"
+        className="from-secondary/55 via-secondary/25 absolute inset-0 -z-10 bg-gradient-to-b to-[#2a4a7f]/40"
       />
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center [text-shadow:0_1px_14px_rgba(0,0,0,0.55)]">
         <p className="text-sm font-semibold tracking-widest text-green-300 uppercase drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">

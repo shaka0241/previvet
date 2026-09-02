@@ -146,7 +146,7 @@ export default function Presentations() {
                   onKeyDown={(e) => handleKeyDown(e, i)}
                   className={`inline-flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 ${
                     isActive
-                      ? "border-white bg-white text-primary shadow-md ring-1 ring-black/5 focus-visible:outline-white"
+                      ? "text-primary border-white bg-white shadow-md ring-1 ring-black/5 focus-visible:outline-white"
                       : "border-white/60 bg-white/10 text-white hover:border-white hover:bg-white/15 focus-visible:outline-white"
                   }`}
                 >
@@ -190,7 +190,10 @@ export default function Presentations() {
         </div>
 
         {/* Dosificación - sin cambios funcionales */}
-        <ul className="flex flex-col gap-4" aria-label="Dosificación por especie">
+        <ul
+          className="flex flex-col gap-4"
+          aria-label="Dosificación por especie"
+        >
           {dosages.map((dose) => (
             <li
               key={dose.species}
