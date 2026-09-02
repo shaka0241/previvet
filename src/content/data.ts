@@ -50,7 +50,7 @@ export const errorPages = {
 export const socialProof: SocialProofContent = {
   stats: [
     { value: "100%", label: "de asimilación garantizada" },
-    { value: "2", label: "especies: bovinos y porcinos" },
+    { value: "2", label: "especies: Bovinos y Porcinos" },
     { value: "A-D3-E", label: "vitaminas esenciales encapsuladas" },
   ],
   testimonials: [],
@@ -80,7 +80,7 @@ export const howToBuy: HowToBuyContent = {
 };
 
 export const hero = {
-  preTitle: "Núcleo nutricional para bovinos y porcinos",
+  preTitle: "Núcleo nutricional para Rumiantes y para Caprinos y Bovinos.",
   title: "Nutrición Integral que Transforma tu Ganadería.",
   subtitle:
     "Nutravit ADE3 Plus no es solo un suplemento, es un núcleo nutricional de alta palatabilidad. Garantiza asimilación del 100%, maximiza la conversión alimenticia y asegura tu rentabilidad.",
