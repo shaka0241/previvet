@@ -84,8 +84,8 @@ export const hero = {
   title: "Nutrición Integral que Transforma tu Ganadería.",
   subtitle:
     "Nutravit ADE3 Plus no es solo un suplemento, es un núcleo nutricional de alta palatabilidad. Garantiza asimilación del 100%, maximiza la conversión alimenticia y asegura tu rentabilidad.",
-  primaryCta: { label: "Solicitar Cotización", href: "#contacto" },
-  secondaryCta: { label: "Hablar con un Asesor", href: "#contacto" },
+  primaryCta: { label: "Solicitar Cotización", href: "#inicio" },
+  secondaryCta: { label: "Hablar con un Asesor", href: "#inicio" },
 };
 
 export const benefitsIntro = {
