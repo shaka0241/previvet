@@ -3,8 +3,11 @@ const siteUrl =
 
 export default siteUrl;
 
-export const WHATSAPP_DEFAULT_MESSAGE =
-  "Hola, quiero cotizar Nutravit ADE3 Plus para mi producción.";
+export const WHATSAPP_COTIZAR_MESSAGE = "Hola, quiero hacer una cotización";
+
+export const WHATSAPP_ASESOR_MESSAGE = "Hola, quiero hablar con un asesor";
+
+export const WHATSAPP_DEFAULT_MESSAGE = WHATSAPP_COTIZAR_MESSAGE;
 
 export function whatsappUrl(message = WHATSAPP_DEFAULT_MESSAGE): string {
   const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;

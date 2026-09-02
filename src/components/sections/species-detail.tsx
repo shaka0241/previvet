@@ -1,9 +1,12 @@
 import Link from "next/link";
-import { PrimaryButton } from "@/components/ui/buttons";
 import SectionHeading from "@/components/ui/section-heading";
+import { WhatsAppIcon } from "@/components/ui/icons";
+import { whatsappUrl, WHATSAPP_COTIZAR_MESSAGE } from "@/lib/site";
 import type { SpeciesTab } from "@/types";
 
 export default function SpeciesDetail({ tab }: { tab: SpeciesTab }) {
+  const waCotizarHref = whatsappUrl(WHATSAPP_COTIZAR_MESSAGE);
+
   return (
     <main className="from-secondary bg-gradient-to-b to-[#2a4a7f] px-4 pt-32 pb-20 text-white">
       <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
@@ -36,9 +39,17 @@ export default function SpeciesDetail({ tab }: { tab: SpeciesTab }) {
             ))}
           </div>
           <div className="mt-4 flex flex-col justify-center gap-4 sm:flex-row">
-            <PrimaryButton href="/#contacto">
-              Solicitar Cotización
-            </PrimaryButton>
+            {waCotizarHref ? (
+              <a
+                href={waCotizarHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-bold text-white transition-colors"
+              >
+                <WhatsAppIcon className="h-5 w-5" />
+                Solicitar Cotización
+              </a>
+            ) : null}
             <Link
               href="/"
               className="inline-block rounded-md border-2 border-white px-6 py-3 font-medium transition-colors hover:bg-white/10"

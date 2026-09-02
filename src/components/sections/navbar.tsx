@@ -1,11 +1,15 @@
 import Image from "next/image";
 import { siteConfig } from "@/content/data";
-import { PrimaryButton } from "@/components/ui/buttons";
 import { WhatsAppIcon } from "@/components/ui/icons";
-import { whatsappUrl } from "@/lib/site";
+import {
+  whatsappUrl,
+  WHATSAPP_ASESOR_MESSAGE,
+  WHATSAPP_COTIZAR_MESSAGE,
+} from "@/lib/site";
 
 export default function Navbar() {
-  const waHref = whatsappUrl();
+  const waCotizarHref = whatsappUrl(WHATSAPP_COTIZAR_MESSAGE);
+  const waAsesorHref = whatsappUrl(WHATSAPP_ASESOR_MESSAGE);
 
   return (
     <nav className="fixed top-0 z-50 w-full bg-white/90 py-2 shadow-sm backdrop-blur-md">
@@ -33,13 +37,23 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <PrimaryButton href="#contacto">{siteConfig.ctaLabel}</PrimaryButton>
-          {waHref && (
+          {waCotizarHref ? (
             <a
-              href={waHref}
+              href={waCotizarHref}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Escríbenos por WhatsApp"
+              className="bg-primary hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-bold text-white transition-colors"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+              {siteConfig.ctaLabel}
+            </a>
+          ) : null}
+          {waAsesorHref && (
+            <a
+              href={waAsesorHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Hablar con un asesor por WhatsApp"
               className="text-primary hover:text-primary/80 transition-colors"
             >
               <WhatsAppIcon className="h-6 w-6" />
@@ -80,18 +94,26 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
-        <PrimaryButton href="#contacto" className="mt-1 text-center">
-          {siteConfig.ctaLabel}
-        </PrimaryButton>
-        {waHref && (
+        {waCotizarHref ? (
           <a
-            href={waHref}
+            href={waCotizarHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary hover:bg-primary/90 mt-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md px-6 py-3 text-center font-bold text-white transition-colors"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+            {siteConfig.ctaLabel}
+          </a>
+        ) : null}
+        {waAsesorHref && (
+          <a
+            href={waAsesorHref}
             target="_blank"
             rel="noopener noreferrer"
             className="text-secondary inline-flex min-h-[44px] items-center gap-2 font-medium"
           >
             <WhatsAppIcon className="text-primary h-5 w-5" />
-            WhatsApp
+            Hablar con un asesor
           </a>
         )}
       </div>

@@ -1,10 +1,14 @@
 import { hero } from "@/content/data";
-import { PrimaryButton, SecondaryButton } from "@/components/ui/buttons";
 import { WhatsAppIcon } from "@/components/ui/icons";
-import { whatsappUrl } from "@/lib/site";
+import {
+  whatsappUrl,
+  WHATSAPP_ASESOR_MESSAGE,
+  WHATSAPP_COTIZAR_MESSAGE,
+} from "@/lib/site";
 
 export default function Hero() {
-  const waHref = whatsappUrl();
+  const waCotizarHref = whatsappUrl(WHATSAPP_COTIZAR_MESSAGE);
+  const waAsesorHref = whatsappUrl(WHATSAPP_ASESOR_MESSAGE);
 
   return (
     <section
@@ -49,12 +53,20 @@ export default function Hero() {
           {hero.subtitle}
         </p>
         <div className="mt-4 flex flex-col gap-4 sm:flex-row">
-          <PrimaryButton href={hero.primaryCta.href}>
-            {hero.primaryCta.label}
-          </PrimaryButton>
-          {waHref ? (
+          {waCotizarHref ? (
             <a
-              href={waHref}
+              href={waCotizarHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-bold text-white transition-colors"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+              {hero.primaryCta.label}
+            </a>
+          ) : null}
+          {waAsesorHref ? (
+            <a
+              href={waAsesorHref}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white px-6 py-3 font-medium transition-colors hover:bg-white/10"
@@ -62,14 +74,7 @@ export default function Hero() {
               <WhatsAppIcon className="h-5 w-5" />
               {hero.secondaryCta.label}
             </a>
-          ) : (
-            <SecondaryButton
-              href={hero.secondaryCta.href}
-              className="border-white text-white hover:bg-white/10 hover:text-white"
-            >
-              {hero.secondaryCta.label}
-            </SecondaryButton>
-          )}
+          ) : null}
         </div>
       </div>
     </section>
