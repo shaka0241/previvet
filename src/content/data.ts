@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL } from "@/lib/site";
 import type {
   BenefitCard,
   Dosage,
@@ -34,6 +35,7 @@ export const sectionTitles: SectionTitles = {
 export const footerContent: FooterContent = {
   intro: `Escríbenos por WhatsApp y un asesor de Vetline Nutrition te responderá con una cotización personalizada.`,
   whatsappCta: "Escríbenos por WhatsApp",
+  socialTitle: "Síguenos",
 };
 
 export const errorPages = {
@@ -253,11 +255,15 @@ export const legalInfo: LegalInfo = {
   legalName: "",
   taxId: "",
   address: "",
-  arcoEmail: "",
+  arcoEmail: CONTACT_EMAIL,
 };
 
 export const privacyPolicyRefs: PrivacyPolicyRefs = {
-  processors: [],
+  processors: [
+    "Google (Gmail, correo de contacto)",
+    "Meta Platforms (WhatsApp, Instagram)",
+    "TikTok / ByteDance",
+  ],
   noCookiesStatement:
     "Este sitio no utiliza cookies de seguimiento ni herramientas de analítica.",
 };

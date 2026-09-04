@@ -25,6 +25,10 @@ body {
     outline: 2px solid var(--color-secondary);
     outline-offset: 2px;
   }
+
+  footer :focus-visible {
+    outline-color: #ffffff;
+  }
 }
 
 #menu-movil:popover-open {

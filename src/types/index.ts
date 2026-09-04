@@ -41,6 +41,15 @@ export interface SectionTitles {
 export interface FooterContent {
   intro: string;
   whatsappCta: string;
+  socialTitle: string;
+}
+
+export type SocialId = "instagram" | "tiktok" | "email";
+
+export interface SocialLink {
+  id: SocialId;
+  label: string;
+  href: string;
 }
 
 export interface SocialProofContent {
