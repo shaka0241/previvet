@@ -91,6 +91,14 @@ Implementado en [`footer.tsx`](file:///Users/albertorojas/proyectos/previvet/src
 - Enlace externo: `https://wa.me/<número>?text=<mensaje>` generado por `whatsappUrl()` en [`site.ts`](file:///Users/albertorojas/proyectos/previvet/src/lib/site.ts), con `target="_blank" rel="noopener noreferrer"`
 - Si `NEXT_PUBLIC_WHATSAPP_NUMBER` no está definida, el botón no se renderiza (en el hero se muestra el CTA secundario como ancla a `#contacto`)
 
+### Bloque social (Footer)
+
+Implementado en [`social-links.tsx`](file:///Users/albertorojas/proyectos/previvet/src/components/ui/social-links.tsx), renderizado bajo el CTA en `footer.tsx`:
+
+- Iconos inline propios (`InstagramIcon`, `TikTokIcon`, `MailIcon`), `h-5 w-5`, sin dependencias
+- Targets 44px (`h-11 w-11`), `rounded-full bg-white/10`, `hover:bg-white/15`, foco blanco visible sobre `bg-secondary`
+- Externos con `target="_blank" rel="noopener noreferrer"` + `aria-label` con aviso de pestaña nueva; email como `mailto:` visible con `break-all`
+
 ### Barra de Navegación (Navbar)
 
 Implementada en [`navbar.tsx`](file:///Users/albertorojas/proyectos/previvet/src/components/sections/navbar.tsx):

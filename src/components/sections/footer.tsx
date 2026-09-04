@@ -6,6 +6,7 @@ import {
 } from "@/content/data";
 import { primaryButtonClasses } from "@/components/ui/buttons";
 import { WhatsAppIcon } from "@/components/ui/icons";
+import SocialLinks from "@/components/ui/social-links";
 import { whatsappUrl } from "@/lib/site";
 
 export default function Footer() {
@@ -31,13 +32,19 @@ export default function Footer() {
             </span>
           </a>
         )}
+        <div className="mt-2 flex flex-col items-center gap-3">
+          <h3 className="text-sm font-semibold tracking-wide text-gray-200 uppercase">
+            {footerContent.socialTitle}
+          </h3>
+          <SocialLinks />
+        </div>
       </div>
       <div className="border-t border-white/10">
         {(legalInfo.legalName ||
           legalInfo.taxId ||
           legalInfo.address ||
           legalInfo.arcoEmail) && (
-          <div className="mx-auto max-w-6xl px-4 pt-6 text-xs text-gray-400">
+          <div className="mx-auto max-w-6xl px-4 pt-6 text-xs text-gray-300">
             {legalInfo.legalName && (
               <p>
                 {legalInfo.legalName}
@@ -51,7 +58,7 @@ export default function Footer() {
                 actualización, rectificación, supresión) escríbenos a{" "}
                 <a
                   href={`mailto:${legalInfo.arcoEmail}`}
-                  className="underline hover:text-gray-200"
+                  className="underline hover:text-gray-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   {legalInfo.arcoEmail}
                 </a>

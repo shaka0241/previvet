@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { faqItems, siteConfig } from "@/content/data";
-import siteUrl from "@/lib/site";
+import siteUrl, {
+  CONTACT_EMAIL,
+  INSTAGRAM_URL,
+  TIKTOK_URL,
+} from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -43,6 +47,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_LA",
     url: "/",
+    siteName: siteConfig.name,
     images: [{ url: "/images/og-nutravit.jpg", width: 1200, height: 630 }],
   },
   twitter: {
@@ -63,6 +68,8 @@ const jsonLd = {
       name: siteConfig.name,
       url: siteUrl,
       logo: `${siteUrl}/images/logo-512.jpg`,
+      email: CONTACT_EMAIL,
+      sameAs: [INSTAGRAM_URL, TIKTOK_URL],
     },
     {
       "@type": "WebSite",

@@ -45,13 +45,15 @@ El proyecto utiliza la nueva API de Tailwind v4 con el plugin PostCSS (`@tailwin
 
 > **Nota:** En Tailwind v4 no existe `tailwind.config.js`. La personalización se hace mediante `@theme inline` en el archivo CSS o con el plugin de PostCSS.
 
-## 2. Contacto vía WhatsApp (Sin Backend Propio)
+## 2. Contacto vía WhatsApp + Email + Redes (Sin Backend Propio)
 
-| Servicio               | Propósito                                     |
-| ---------------------- | --------------------------------------------- |
-| **WhatsApp (`wa.me`)** | Único canal de contacto y conversión de leads |
+| Servicio               | Propósito                                              |
+| ---------------------- | ------------------------------------------------------ |
+| **WhatsApp (`wa.me`)** | Canal principal de contacto y conversión de leads      |
+| **Email (Gmail)**      | Canal comercial + ARCO-P: `vetlinenutrition@gmail.com` |
+| **Instagram / TikTok** | Enlaces salientes oficiales (sin embeds ni widgets)    |
 
-**Implementación:** No existen formularios ni servicios de terceros para contacto. La función `whatsappUrl()` en [`site.ts`](file:///Users/albertorojas/proyectos/previvet/src/lib/site.ts) construye enlaces `https://wa.me/<número>?text=<mensaje>` a partir de la variable de entorno `NEXT_PUBLIC_WHATSAPP_NUMBER`. Si la variable no está definida, los botones/enlaces de WhatsApp no se renderizan. El mensaje inicial es configurable vía `WHATSAPP_DEFAULT_MESSAGE`.
+**Implementación:** No existen formularios ni servicios de terceros para contacto. La función `whatsappUrl()` en [`site.ts`](file:///Users/albertorojas/proyectos/previvet/src/lib/site.ts) construye enlaces `https://wa.me/<número>?text=<mensaje>` a partir de la variable de entorno `NEXT_PUBLIC_WHATSAPP_NUMBER`. Si la variable no está definida, los botones/enlaces de WhatsApp no se renderizan. El mensaje inicial es configurable vía `WHATSAPP_DEFAULT_MESSAGE`. Email y redes viven como constantes centralizadas (`CONTACT_EMAIL`, `INSTAGRAM_URL`, `TIKTOK_URL`, `SOCIAL_LINKS`) en el mismo `site.ts`.
 
 ## 3. Infraestructura y Hosting (Despliegue Estático)
 
@@ -62,14 +64,14 @@ El proyecto utiliza la nueva API de Tailwind v4 con el plugin PostCSS (`@tailwin
 ## 4. Capa de Red y Seguridad Front-End
 
 - **DNS / CDN:** Cloudflare (mitigación DDoS, Edge Caching, protección gratuita)
-- **Superficie de ataque mínima:** sin formularios ni terceros embebidos; el único enlace externo es `wa.me`
+- **Superficie de ataque mínima:** sin formularios ni terceros embebidos; enlaces externos solo a `wa.me`, `instagram.com`, `tiktok.com` y `mailto:` (sin scripts/iframes)
 
 ## 5. SEO y Structured Data
 
 El layout raíz ([`layout.tsx`](file:///Users/albertorojas/proyectos/previvet/src/app/layout.tsx)) exporta:
 
 - **`metadata`**: Título, descripción, keywords, Open Graph (locale `es_LA`)
-- **JSON-LD**: Schema `Product` con nombre de marca y producto
+- **JSON-LD**: Schema `Product` con nombre de marca y producto + `Organization` con `email` y `sameAs` (Instagram, TikTok)
 
 ## 6. Flujo de Operación
 

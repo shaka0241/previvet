@@ -101,11 +101,12 @@ _Componente: [`presentations.tsx`](file:///Users/albertorojas/proyectos/previvet
 
 ---
 
-## 6. Footer (Llamado a la Acción + WhatsApp)
+## 6. Footer (Llamado a la Acción + WhatsApp + Redes)
 
 _Componente: [`footer.tsx`](file:///Users/albertorojas/proyectos/previvet/src/components/sections/footer.tsx)_
 
 - **Título:** ¿Listo para llevar tu producción al siguiente nivel?
 - **Subtexto:** Escríbenos por WhatsApp y un asesor de Vetline Nutrition te responderá con una cotización personalizada.
 - **CTA:** "Escríbenos por WhatsApp" → `wa.me` con mensaje prellenado ("Hola, quiero cotizar Nutravit ADE3 Plus para mi producción.")
+- **Redes:** "Síguenos" → Instagram `https://www.instagram.com/vetlinenutrition/`, TikTok `https://www.tiktok.com/@vetlinenutrition`, email `vetlinenutrition@gmail.com` (comercial + ARCO-P)
 - **Copyright:** © {año} Vetline Nutrition. Todos los derechos reservados.
