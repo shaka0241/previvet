@@ -1,8 +1,4 @@
-import {
-  InstagramIcon,
-  MailIcon,
-  TikTokIcon,
-} from "@/components/ui/icons";
+import { InstagramIcon, MailIcon, TikTokIcon } from "@/components/ui/icons";
 import { CONTACT_EMAIL, INSTAGRAM_URL, TIKTOK_URL } from "@/lib/site";
 
 const linkClasses =

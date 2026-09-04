@@ -2,11 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { faqItems, siteConfig } from "@/content/data";
-import siteUrl, {
-  CONTACT_EMAIL,
-  INSTAGRAM_URL,
-  TIKTOK_URL,
-} from "@/lib/site";
+import siteUrl, { CONTACT_EMAIL, INSTAGRAM_URL, TIKTOK_URL } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",

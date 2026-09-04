@@ -42,9 +42,7 @@ describe("contacto y redes sociales", () => {
   });
 
   it("expone URLs https canónicas de IG y TikTok", () => {
-    expect(INSTAGRAM_URL).toBe(
-      "https://www.instagram.com/vetlinenutrition/",
-    );
+    expect(INSTAGRAM_URL).toBe("https://www.instagram.com/vetlinenutrition/");
     expect(TIKTOK_URL).toBe("https://www.tiktok.com/@vetlinenutrition");
     for (const url of [INSTAGRAM_URL, TIKTOK_URL]) {
       expect(url.startsWith("https://")).toBe(true);
