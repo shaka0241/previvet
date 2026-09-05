@@ -42,6 +42,8 @@ export default function Navbar() {
               href={waCotizarHref}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="whatsapp_click"
+              data-location="navbar-cotizar"
               className="bg-primary hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-bold text-white transition-colors"
             >
               <WhatsAppIcon className="h-5 w-5" />
@@ -54,6 +56,8 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Hablar con un asesor por WhatsApp"
+              data-track="whatsapp_click"
+              data-location="navbar-asesor"
               className="text-primary hover:text-primary/80 transition-colors"
             >
               <WhatsAppIcon className="h-6 w-6" />
@@ -99,6 +103,8 @@ export default function Navbar() {
             href={waCotizarHref}
             target="_blank"
             rel="noopener noreferrer"
+            data-track="whatsapp_click"
+            data-location="navbar-movil-cotizar"
             className="bg-primary hover:bg-primary/90 mt-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md px-6 py-3 text-center font-bold text-white transition-colors"
           >
             <WhatsAppIcon className="h-5 w-5" />
@@ -110,6 +116,8 @@ export default function Navbar() {
             href={waAsesorHref}
             target="_blank"
             rel="noopener noreferrer"
+            data-track="whatsapp_click"
+            data-location="navbar-movil-asesor"
             className="text-secondary inline-flex min-h-[44px] items-center gap-2 font-medium"
           >
             <WhatsAppIcon className="text-primary h-5 w-5" />

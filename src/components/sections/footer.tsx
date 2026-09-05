@@ -24,6 +24,8 @@ export default function Footer() {
             href={waHref}
             target="_blank"
             rel="noopener noreferrer"
+            data-track="whatsapp_click"
+            data-location="footer"
             className={primaryButtonClasses + " mt-2"}
           >
             <span className="flex items-center gap-2">

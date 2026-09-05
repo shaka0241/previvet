@@ -3,6 +3,8 @@ import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { faqItems, siteConfig } from "@/content/data";
 import siteUrl, { CONTACT_EMAIL, INSTAGRAM_URL, TIKTOK_URL } from "@/lib/site";
+import PostHogPageview from "@/components/analytics/posthog-pageview";
+import TrackClicks from "@/components/analytics/track-clicks";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -109,6 +111,8 @@ export default function RootLayout({
       className={`${inter.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <PostHogPageview />
+        <TrackClicks />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

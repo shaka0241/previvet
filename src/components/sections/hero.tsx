@@ -58,6 +58,8 @@ export default function Hero() {
               href={waCotizarHref}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="whatsapp_click"
+              data-location="hero-cotizar"
               className="bg-primary hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-bold text-white transition-colors"
             >
               <WhatsAppIcon className="h-5 w-5" />
@@ -69,6 +71,8 @@ export default function Hero() {
               href={waAsesorHref}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="whatsapp_click"
+              data-location="hero-asesor"
               className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white px-6 py-3 font-medium transition-colors hover:bg-white/10"
             >
               <WhatsAppIcon className="h-5 w-5" />

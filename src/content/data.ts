@@ -263,7 +263,8 @@ export const privacyPolicyRefs: PrivacyPolicyRefs = {
     "Google (Gmail, correo de contacto)",
     "Meta Platforms (WhatsApp, Instagram)",
     "TikTok / ByteDance",
+    "PostHog (analítica de uso)",
   ],
   noCookiesStatement:
-    "Este sitio no utiliza cookies de seguimiento ni herramientas de analítica.",
+    "Este sitio usa PostHog para analítica básica de visitas (pageviews y clics en contacto).",
 };
