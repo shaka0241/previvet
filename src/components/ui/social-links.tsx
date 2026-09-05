@@ -15,6 +15,8 @@ export default function SocialLinks() {
             rel="noopener noreferrer"
             aria-label="Instagram de Vetline Nutrition, se abre en pestaña nueva"
             title="Instagram"
+            data-track="social_click"
+            data-network="instagram"
             className={linkClasses}
           >
             <InstagramIcon className="h-5 w-5" />
@@ -27,6 +29,8 @@ export default function SocialLinks() {
             rel="noopener noreferrer"
             aria-label="TikTok de Vetline Nutrition, se abre en pestaña nueva"
             title="TikTok"
+            data-track="social_click"
+            data-network="tiktok"
             className={linkClasses}
           >
             <TikTokIcon className="h-5 w-5" />
@@ -36,6 +40,8 @@ export default function SocialLinks() {
       <a
         href={`mailto:${CONTACT_EMAIL}`}
         aria-label={`Escríbenos por correo a ${CONTACT_EMAIL}`}
+        data-track="social_click"
+        data-network="email"
         className="inline-flex max-w-full items-center gap-2 rounded-md text-sm break-all text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
       >
         <MailIcon className="h-4 w-4 shrink-0" />

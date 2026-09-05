@@ -71,6 +71,8 @@ export default function HowToBuy() {
             href={waHref}
             target="_blank"
             rel="noopener noreferrer"
+            data-track="whatsapp_click"
+            data-location="how-to-buy"
             className="border-primary text-primary hover:bg-primary/10 mx-auto inline-flex w-fit items-center gap-2 rounded-md border-2 px-5 py-3 font-bold transition-colors"
           >
             <WhatsAppIcon className="h-5 w-5" />
