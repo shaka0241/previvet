@@ -3,7 +3,8 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const CHUNKS_DIR = "out/_next/static/chunks";
-const LIMIT_KB = Number(process.env.BUNDLE_LIMIT_KB ?? 220);
+// Presupuesto subido de 220 a 300 KB gzip al integrar posthog-js (SDK oficial).
+const LIMIT_KB = Number(process.env.BUNDLE_LIMIT_KB ?? 300);
 
 function jsFiles(dir) {
   return readdirSync(dir).flatMap((name) => {
