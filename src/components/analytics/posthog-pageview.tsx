@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import posthog from "posthog-js";
+import { capture } from "@/lib/posthog-client";
 
 function PageviewInner() {
   const pathname = usePathname();
@@ -10,14 +10,10 @@ function PageviewInner() {
 
   useEffect(() => {
     if (!pathname) return;
-    try {
-      const url = searchParams?.toString()
-        ? `${pathname}?${searchParams.toString()}`
-        : pathname;
-      posthog.capture("$pageview", { $current_url: url });
-    } catch {
-      // no-op
-    }
+    const url = searchParams?.toString()
+      ? `${pathname}?${searchParams.toString()}`
+      : pathname;
+    capture("$pageview", { $current_url: url });
   }, [pathname, searchParams]);
 
   return null;
