@@ -1,13 +1,21 @@
-import { capture } from "@/lib/posthog-client";
+import posthog from "posthog-js";
+
+function safeCapture(event: string, properties?: Record<string, unknown>) {
+  try {
+    posthog.capture(event, properties);
+  } catch {
+    // Analytics nunca debe romper la conversión
+  }
+}
 
 export function trackWhatsappClick(location: string) {
-  capture("whatsapp_click", { location });
+  safeCapture("whatsapp_click", { location });
 }
 
 export function trackSocialClick(network: "instagram" | "tiktok" | "email") {
-  capture("social_click", { network });
+  safeCapture("social_click", { network });
 }
 
 export function trackCtaClick(cta: string, location: string) {
-  capture("cta_click", { cta, location });
+  safeCapture("cta_click", { cta, location });
 }

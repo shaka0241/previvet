@@ -2,18 +2,22 @@
 
 import { Suspense, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { capture } from "@/lib/posthog-client";
+import posthog from "posthog-js";
 
 function PageviewInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (!pathname) return;
-    const url = searchParams?.toString()
-      ? `${pathname}?${searchParams.toString()}`
-      : pathname;
-    capture("$pageview", { $current_url: url });
+    if (!pathname || !posthog.__loaded) return;
+    try {
+      const url = searchParams?.toString()
+        ? `${pathname}?${searchParams.toString()}`
+        : pathname;
+      posthog.capture("$pageview", { $current_url: url });
+    } catch {
+      // no-op
+    }
   }, [pathname, searchParams]);
 
   return null;
