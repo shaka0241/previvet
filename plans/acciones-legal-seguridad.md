@@ -52,7 +52,7 @@
 - [ ] **C1. Definir país objetivo principal** (placeholder +57 sugiere Colombia/SIC) y recopilar: razón social completa, NIT/RUC, dirección, email para derechos ARCO-P.
 - [ ] **C1-bis. Llenar `data.ts → legalInfo`** con esos datos — el bloque ARCO-P del footer se renderiza automáticamente.
 - [ ] **C2. Crear `/politica-de-privacidad`** con: identidad del responsable, finalidades (contacto comercial vía WhatsApp), declaración "sin cookies de seguimiento", plazos de retención, derechos ARCO-P y canal de solicitudes. *(2026-08-23: sin formulario no hay encargados web que declarar; valorar mención al tratamiento de datos en conversaciones de WhatsApp.)*
-- ✅ **C2 (borrador 2026-09-06):** creadas `/politica-de-privacidad`, `/politica-de-cookies`, `/terminos-y-condiciones`, `/aviso-legal` (contenido en `src/content/legal.ts`, renderer `legal-page.tsx`, enlaces en footer, sitemap 0.3/yearly). **Pendiente C4: validación de abogado en Venezuela antes de considerarse definitivas** — llevan aviso visible de borrador.
+- ✅ **C2 (2026-09-06):** publicadas `/politica-de-privacidad`, `/politica-de-cookies`, `/terminos-y-condiciones`, `/aviso-legal` (contenido en `src/content/legal.ts`, renderer `legal-page.tsx`, enlaces en footer, sitemap 0.3/yearly) como textos vigentes mientras se obtiene la **validación de abogado en Venezuela (C4)**.
 - [x] ~~**C3. Checkbox obligatorio de aceptación** en el formulario~~ — **Obsoleto (2026-08-23):** sin formulario no hay consentimiento web que gestionar.
 - [ ] **C4. Validación de counsel local** según país (Colombia: textos SIC / Ecuador: SUPIMPA / México: aviso de privacidad integral / Perú: plazos ARCO).
 

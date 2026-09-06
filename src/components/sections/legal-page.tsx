@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
-import { LEGAL_DRAFT_NOTICE, type LegalDoc } from "@/content/legal";
+import { type LegalDoc } from "@/content/legal";
 import { siteConfig } from "@/content/data";
 
 export default function LegalPage({ doc }: { doc: LegalDoc }) {
@@ -27,12 +27,6 @@ export default function LegalPage({ doc }: { doc: LegalDoc }) {
           </h1>
           <p className="mt-2 text-sm text-gray-500">
             {siteConfig.name} · Última actualización: {doc.updated}
-          </p>
-          <p
-            role="note"
-            className="mt-6 rounded-md border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900"
-          >
-            {LEGAL_DRAFT_NOTICE}
           </p>
           <nav aria-label="Contenido del documento" className="mt-8">
             <ul className="flex flex-col gap-1">

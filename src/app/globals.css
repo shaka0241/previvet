@@ -36,7 +36,10 @@ body {
 }
 
 #menu-movil::backdrop {
-  background: rgb(15 23 42 / 0.4);
+  /* Sin velo: el backdrop nativo atenúa hasta el navbar y deja la
+     hamburguesa inerte. Transparente mantiene el light-dismiss
+     (clic fuera + Escape) sin oscurecer la barra. */
+  background: transparent;
 }
 
 @keyframes pop-in {

@@ -20,9 +20,10 @@ export const siteConfig: SiteConfig = {
   logo: "/images/logo-nav.webp",
   ctaLabel: "Cotizar",
   navLinks: [
-    { label: "Beneficios", href: "#beneficios" },
-    { label: "Ciencia", href: "#ciencia" },
-    { label: "Presentaciones", href: "#presentaciones" },
+    { label: "Beneficios", href: "/#beneficios" },
+    { label: "Ciencia", href: "/#ciencia" },
+    { label: "Presentaciones", href: "/#presentaciones" },
+    { label: "Contacto", href: "/#contacto" },
   ],
 };
 

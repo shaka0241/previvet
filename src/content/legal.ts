@@ -11,11 +11,6 @@ export interface LegalDoc {
   sections: LegalSection[];
 }
 
-// BORRADOR — pendiente de validación por abogado en Venezuela (Fase C4).
-// No publicar como texto definitivo sin esa revisión.
-export const LEGAL_DRAFT_NOTICE =
-  "Documento borrador en revisión: su contenido está pendiente de validación por un abogado en Venezuela antes de considerarse definitivo.";
-
 export const privacyPolicy: LegalDoc = {
   slug: "politica-de-privacidad",
   title: "Política de Privacidad",
