@@ -8,6 +8,7 @@ import { legalDocs } from "@/content/legal";
 import { primaryButtonClasses } from "@/components/ui/buttons";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import SocialLinks from "@/components/ui/social-links";
+import Link from "next/link";
 import { whatsappUrl } from "@/lib/site";
 
 export default function Footer() {
@@ -81,12 +82,12 @@ export default function Footer() {
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {legalDocs.map((doc) => (
               <li key={doc.slug}>
-                <a
+                <Link
                   href={`/${doc.slug}`}
                   className="inline-flex min-h-[44px] items-center text-sm text-gray-300 underline underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   {doc.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

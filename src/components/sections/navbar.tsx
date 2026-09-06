@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { siteConfig } from "@/content/data";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import NavbarMenuClose from "@/components/sections/navbar-menu-close";
@@ -16,7 +17,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 z-50 w-full bg-white/90 py-2 shadow-sm backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <a
+        <Link
           href="/#inicio"
           className="absolute left-1/2 -translate-x-1/2 items-center gap-2 md:static md:translate-x-0"
         >
@@ -27,17 +28,17 @@ export default function Navbar() {
             height={64}
             className="h-10 w-auto rounded-md md:h-10"
           />
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 md:flex">
           {siteConfig.navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-secondary hover:text-primary font-medium transition-colors"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           {waCotizarHref ? (
             <a
@@ -76,13 +77,13 @@ export default function Navbar() {
         className="fixed inset-x-0 top-20 bottom-auto m-0 w-full flex-col gap-1 rounded-none border-t border-gray-100 bg-white px-4 pt-2 pb-4 shadow-lg md:hidden"
       >
         {siteConfig.navLinks.map((link) => (
-          <a
+          <Link
             key={link.href}
             href={link.href}
             className="text-secondary inline-flex min-h-[44px] items-center font-medium"
           >
             {link.label}
-          </a>
+          </Link>
         ))}
         {waCotizarHref ? (
           <a
