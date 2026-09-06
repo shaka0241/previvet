@@ -20,9 +20,10 @@ export const siteConfig: SiteConfig = {
   logo: "/images/logo-nav.webp",
   ctaLabel: "Cotizar",
   navLinks: [
-    { label: "Beneficios", href: "#beneficios" },
-    { label: "Ciencia", href: "#ciencia" },
-    { label: "Presentaciones", href: "#presentaciones" },
+    { label: "Beneficios", href: "/#beneficios" },
+    { label: "Ciencia", href: "/#ciencia" },
+    { label: "Presentaciones", href: "/#presentaciones" },
+    { label: "Contacto", href: "/#contacto" },
   ],
 };
 
@@ -252,9 +253,9 @@ export const footerCta = {
 };
 
 export const legalInfo: LegalInfo = {
-  legalName: "",
-  taxId: "",
-  address: "",
+  legalName: "Vetline NUTRITION, C.A.",
+  taxId: "RIF J-506792796",
+  address: "Carabobo, Venezuela",
   arcoEmail: CONTACT_EMAIL,
 };
 
