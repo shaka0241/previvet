@@ -4,6 +4,7 @@ import {
   legalInfo,
   siteConfig,
 } from "@/content/data";
+import { legalDocs } from "@/content/legal";
 import { primaryButtonClasses } from "@/components/ui/buttons";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import SocialLinks from "@/components/ui/social-links";
@@ -73,6 +74,23 @@ export default function Footer() {
           © {new Date().getFullYear()} {siteConfig.name}. Todos los derechos
           reservados.
         </p>
+        <nav
+          aria-label="Documentos legales"
+          className="mx-auto max-w-6xl px-4 pb-6"
+        >
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {legalDocs.map((doc) => (
+              <li key={doc.slug}>
+                <a
+                  href={`/${doc.slug}`}
+                  className="inline-flex min-h-[44px] items-center text-sm text-gray-300 underline underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                  {doc.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </footer>
   );

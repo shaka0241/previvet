@@ -252,9 +252,9 @@ export const footerCta = {
 };
 
 export const legalInfo: LegalInfo = {
-  legalName: "",
-  taxId: "",
-  address: "",
+  legalName: "Vetline NUTRITION, C.A.",
+  taxId: "RIF J-506792796",
+  address: "Carabobo, Venezuela",
   arcoEmail: CONTACT_EMAIL,
 };
 

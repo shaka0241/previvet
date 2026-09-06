@@ -40,9 +40,19 @@
 
 ## Fase C — Legal documental (requiere datos del cliente + counsel local)
 
+> **🔄 Actualización 2026-09-06 (datos confirmados por el cliente):**
+> - País objetivo: **Venezuela** (ya no Colombia/SIC).
+> - Identificador fiscal: **RIF J-506792796**.
+> - PostHog: host **US** (`https://us.i.posthog.com`) — transferencia internacional a EE.UU. a declarar.
+> - Finalidades WhatsApp: **ambas** — cotización + seguimiento comercial (requiere regla opt-out).
+> - ⏳ Pendiente del cliente: **razón social** (`legalInfo.legalName`) y **domicilio** (`legalInfo.address`); confirmar si el Gmail sigue como canal ARCO o hay correo corporativo.
+> - ✅ 2026-09-06 (2/2): razón social **Vetline NUTRITION, C.A.** + domicilio **Carabobo, Venezuela** registrados — bloque legal del footer activo. Canal ARCO: sigue Gmail salvo aviso.
+> - Nota: Venezuela no tiene ley general de protección de datos equivalente a la Ley 1581 colombiana; la vía es el hábeas data constitucional (art. 60 CRBV) más normativa sectorial — **validación de abogado local imprescindible** antes de redactar C2.
+
 - [ ] **C1. Definir país objetivo principal** (placeholder +57 sugiere Colombia/SIC) y recopilar: razón social completa, NIT/RUC, dirección, email para derechos ARCO-P.
 - [ ] **C1-bis. Llenar `data.ts → legalInfo`** con esos datos — el bloque ARCO-P del footer se renderiza automáticamente.
 - [ ] **C2. Crear `/politica-de-privacidad`** con: identidad del responsable, finalidades (contacto comercial vía WhatsApp), declaración "sin cookies de seguimiento", plazos de retención, derechos ARCO-P y canal de solicitudes. *(2026-08-23: sin formulario no hay encargados web que declarar; valorar mención al tratamiento de datos en conversaciones de WhatsApp.)*
+- ✅ **C2 (borrador 2026-09-06):** creadas `/politica-de-privacidad`, `/politica-de-cookies`, `/terminos-y-condiciones`, `/aviso-legal` (contenido en `src/content/legal.ts`, renderer `legal-page.tsx`, enlaces en footer, sitemap 0.3/yearly). **Pendiente C4: validación de abogado en Venezuela antes de considerarse definitivas** — llevan aviso visible de borrador.
 - [x] ~~**C3. Checkbox obligatorio de aceptación** en el formulario~~ — **Obsoleto (2026-08-23):** sin formulario no hay consentimiento web que gestionar.
 - [ ] **C4. Validación de counsel local** según país (Colombia: textos SIC / Ecuador: SUPIMPA / México: aviso de privacidad integral / Perú: plazos ARCO).
 

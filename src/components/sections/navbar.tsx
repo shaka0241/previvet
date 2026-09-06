@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { siteConfig } from "@/content/data";
 import { WhatsAppIcon } from "@/components/ui/icons";
+import NavbarMenuClose from "@/components/sections/navbar-menu-close";
 import {
   whatsappUrl,
   WHATSAPP_ASESOR_MESSAGE,
@@ -126,12 +127,7 @@ export default function Navbar() {
         )}
       </div>
 
-      <script
-        dangerouslySetInnerHTML={{
-          __html:
-            'document.addEventListener("hashchange",function(){var m=document.getElementById("menu-movil");if(m&&m.matches(":popover-open"))m.hidePopover();});',
-        }}
-      />
+      <NavbarMenuClose />
     </nav>
   );
 }
