@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import {
   clearPosthogStorage,
@@ -11,10 +11,16 @@ import {
 import { initPostHogIfConsented, optOutPostHog } from "@/lib/posthog-init";
 
 export default function CookieBanner() {
-  const [visible, setVisible] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    return getConsent() === null;
-  });
+  // null en SSR y en el primer render del cliente para evitar hydration mismatch.
+  // Solo tras montar leemos localStorage.
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (getConsent() === null) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- leer localStorage solo es posible tras montar; es el patrón hidratación-segura
+      setVisible(true);
+    }
+  }, []);
 
   const choose = useCallback((value: Exclude<AnalyticsConsent, null>) => {
     setConsent(value);
