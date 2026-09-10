@@ -1,19 +1,19 @@
-import posthog from "posthog-js";
+import { canTrack, CONSENT_EVENT } from "./lib/consent";
+import { initPostHogIfConsented } from "./lib/posthog-init";
 
 try {
-  const token =
-    process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN ??
-    process.env.NEXT_PUBLIC_POSTHOG_KEY;
-  const host =
-    process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com";
+  // Solo inicializa si ya hay consentimiento previo. Sin opt-in, no se
+  // crea ninguna cookie ni se envía nada a PostHog (Ley 1581 / LOPDP / LPDP / LFPDPPP).
+  if (canTrack()) initPostHogIfConsented();
 
-  if (token) {
-    posthog.init(token, {
-      api_host: host,
-      defaults: "2026-05-30",
-      // El pageview lo captura PostHogPageview en cada cambio de ruta
-      // (evita doble $pageview en la carga inicial del App Router).
-      capture_pageview: false,
+  if (typeof window !== "undefined") {
+    window.addEventListener(CONSENT_EVENT, (e) => {
+      try {
+        if ((e as CustomEvent).detail === "accepted")
+          initPostHogIfConsented();
+      } catch {
+        // no-op
+      }
     });
   }
 } catch {

@@ -1,10 +1,11 @@
 import { howToBuy, siteConfig } from "@/content/data";
 import SectionHeading from "@/components/ui/section-heading";
 import { WhatsAppIcon } from "@/components/ui/icons";
-import { whatsappUrl } from "@/lib/site";
+import { contactHref, whatsappUrl } from "@/lib/site";
 
 export default function HowToBuy() {
   const waHref = whatsappUrl();
+  const ctaHref = contactHref();
 
   return (
     <section id="como-comprar" className="scroll-mt-16 bg-white px-4 py-20">
@@ -66,19 +67,17 @@ export default function HowToBuy() {
           </div>
         )}
 
-        {waHref && (
-          <a
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-track="whatsapp_click"
-            data-location="how-to-buy"
-            className="border-primary text-primary hover:bg-primary/10 mx-auto inline-flex w-fit items-center gap-2 rounded-md border-2 px-5 py-3 font-bold transition-colors"
-          >
-            <WhatsAppIcon className="h-5 w-5" />
-            Consulta a {siteConfig.name} por WhatsApp
-          </a>
-        )}
+        <a
+          href={ctaHref}
+          {...(waHref ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+          data-track={waHref ? "whatsapp_click" : "cta_click"}
+          data-location="how-to-buy"
+          data-cta="whatsapp"
+          className="border-primary text-primary hover:bg-primary/10 mx-auto inline-flex w-fit items-center gap-2 rounded-md border-2 px-5 py-3 font-bold transition-colors"
+        >
+          <WhatsAppIcon className="h-5 w-5" />
+          Consulta a {siteConfig.name} por WhatsApp
+        </a>
       </div>
     </section>
   );

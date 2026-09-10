@@ -1,7 +1,17 @@
 import type { SocialLink } from "@/types";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://vetlinenutrition.vercel.app";
+function resolveSiteUrl(): string {
+  const url = process.env.NEXT_PUBLIC_SITE_URL;
+  if (url) return url.replace(/\/$/, "");
+  if (process.env.NODE_ENV === "production") {
+    throw new Error(
+      "NEXT_PUBLIC_SITE_URL no está definida. Fija https://tu-nuevo-dominio en Vercel → Settings → Environment Variables (Production) y redespliega. Ver docs/architecture.md.",
+    );
+  }
+  return "https://vetlinenutrition.vercel.app";
+}
+
+const siteUrl = resolveSiteUrl();
 
 export default siteUrl;
 
@@ -39,4 +49,15 @@ export function whatsappUrl(message = WHATSAPP_DEFAULT_MESSAGE): string {
   const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
   if (!number) return "";
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+}
+
+export const CONTACT_FALLBACK_HREF = "/#contacto";
+
+export function hasWhatsappNumber(): boolean {
+  return Boolean(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER);
+}
+
+/** Href de contacto resiliente: wa.me si hay número, si no cae a #contacto. Nunca ocultar el CTA. */
+export function contactHref(message = WHATSAPP_DEFAULT_MESSAGE): string {
+  return whatsappUrl(message) || CONTACT_FALLBACK_HREF;
 }
