@@ -23,5 +23,13 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "vetlinenutrition.vercel.app" }],
+      "destination": "https://vetline-nutrition.com/:path*",
+      "permanent": true
+    }
   ]
 }
