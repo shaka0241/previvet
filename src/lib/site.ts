@@ -5,7 +5,7 @@ function resolveSiteUrl(): string {
   if (url) return url.replace(/\/$/, "");
   if (process.env.NODE_ENV === "production") {
     throw new Error(
-      "NEXT_PUBLIC_SITE_URL no está definida. Fija https://tu-nuevo-dominio en Vercel → Settings → Environment Variables (Production) y redespliega. Ver docs/architecture.md.",
+      "NEXT_PUBLIC_SITE_URL no está definida. Fija https://vetline-nutrition.com en Vercel → Settings → Environment Variables (Production) y redespliega. Ver docs/architecture.md.",
     );
   }
   return "https://vetlinenutrition.vercel.app";
