@@ -1,6 +1,7 @@
 import { hero } from "@/content/data";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import {
+  contactHref,
   whatsappUrl,
   WHATSAPP_ASESOR_MESSAGE,
   WHATSAPP_COTIZAR_MESSAGE,
@@ -9,6 +10,8 @@ import {
 export default function Hero() {
   const waCotizarHref = whatsappUrl(WHATSAPP_COTIZAR_MESSAGE);
   const waAsesorHref = whatsappUrl(WHATSAPP_ASESOR_MESSAGE);
+  const cotizarHref = contactHref(WHATSAPP_COTIZAR_MESSAGE);
+  const asesorHref = contactHref(WHATSAPP_ASESOR_MESSAGE);
 
   return (
     <section
@@ -53,32 +56,32 @@ export default function Hero() {
           {hero.subtitle}
         </p>
         <div className="mt-4 flex flex-col gap-4 sm:flex-row">
-          {waCotizarHref ? (
-            <a
-              href={waCotizarHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-track="whatsapp_click"
-              data-location="hero-cotizar"
-              className="bg-primary hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-bold text-white transition-colors"
-            >
-              <WhatsAppIcon className="h-5 w-5" />
-              {hero.primaryCta.label}
-            </a>
-          ) : null}
-          {waAsesorHref ? (
-            <a
-              href={waAsesorHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-track="whatsapp_click"
-              data-location="hero-asesor"
-              className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white px-6 py-3 font-medium transition-colors hover:bg-white/10"
-            >
-              <WhatsAppIcon className="h-5 w-5" />
-              {hero.secondaryCta.label}
-            </a>
-          ) : null}
+          <a
+            href={cotizarHref}
+            {...(waCotizarHref
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+            data-track={waCotizarHref ? "whatsapp_click" : "cta_click"}
+            data-location="hero-cotizar"
+            data-cta="solicitar-cotizacion"
+            className="bg-primary hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-bold text-white transition-colors"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+            {hero.primaryCta.label}
+          </a>
+          <a
+            href={asesorHref}
+            {...(waAsesorHref
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+            data-track={waAsesorHref ? "whatsapp_click" : "cta_click"}
+            data-location="hero-asesor"
+            data-cta="hablar-asesor"
+            className="inline-flex items-center justify-center gap-2 rounded-md border-2 border-white px-6 py-3 font-medium transition-colors hover:bg-white/10"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+            {hero.secondaryCta.label}
+          </a>
         </div>
       </div>
     </section>

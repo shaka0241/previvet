@@ -1,4 +1,4 @@
-const url = process.env.VERIFY_URL ?? "https://vetlinenutrition.vercel.app/";
+const url = process.env.VERIFY_URL ?? "https://vetline-nutrition.com/";
 
 try {
   const res = await fetch(url, { method: "GET" });

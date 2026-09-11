@@ -5,6 +5,7 @@ import { WhatsAppIcon } from "@/components/ui/icons";
 import NavbarMenuClose from "@/components/sections/navbar-menu-close";
 import NavbarMenuToggle from "@/components/sections/navbar-menu-toggle";
 import {
+  contactHref,
   whatsappUrl,
   WHATSAPP_ASESOR_MESSAGE,
   WHATSAPP_COTIZAR_MESSAGE,
@@ -13,6 +14,8 @@ import {
 export default function Navbar() {
   const waCotizarHref = whatsappUrl(WHATSAPP_COTIZAR_MESSAGE);
   const waAsesorHref = whatsappUrl(WHATSAPP_ASESOR_MESSAGE);
+  const cotizarHref = contactHref(WHATSAPP_COTIZAR_MESSAGE);
+  const asesorHref = contactHref(WHATSAPP_ASESOR_MESSAGE);
 
   return (
     <nav className="fixed top-0 z-50 w-full bg-white/90 py-2 shadow-sm backdrop-blur-md">
@@ -40,32 +43,31 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          {waCotizarHref ? (
-            <a
-              href={waCotizarHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-track="whatsapp_click"
-              data-location="navbar-cotizar"
-              className="bg-primary hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-bold text-white transition-colors"
-            >
-              <WhatsAppIcon className="h-5 w-5" />
-              {siteConfig.ctaLabel}
-            </a>
-          ) : null}
-          {waAsesorHref && (
-            <a
-              href={waAsesorHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Hablar con un asesor por WhatsApp"
-              data-track="whatsapp_click"
-              data-location="navbar-asesor"
-              className="text-primary hover:text-primary/80 transition-colors"
-            >
-              <WhatsAppIcon className="h-6 w-6" />
-            </a>
-          )}
+          <a
+            href={cotizarHref}
+            {...(waCotizarHref
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+            data-track={waCotizarHref ? "whatsapp_click" : "cta_click"}
+            data-location="navbar-cotizar"
+            data-cta="cotizar"
+            className="bg-primary hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-bold text-white transition-colors"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+            {siteConfig.ctaLabel}
+          </a>
+          <a
+            href={asesorHref}
+            {...(waAsesorHref
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+            aria-label="Hablar con un asesor por WhatsApp"
+            data-track={waAsesorHref ? "whatsapp_click" : "cta_click"}
+            data-location="navbar-asesor"
+            className="text-primary hover:text-primary/80 transition-colors"
+          >
+            <WhatsAppIcon className="h-6 w-6" />
+          </a>
         </div>
 
         <NavbarMenuToggle />
@@ -85,19 +87,19 @@ export default function Navbar() {
             {link.label}
           </Link>
         ))}
-        {waCotizarHref ? (
-          <a
-            href={waCotizarHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-track="whatsapp_click"
-            data-location="navbar-movil-cotizar"
-            className="bg-primary hover:bg-primary/90 mt-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md px-6 py-3 text-center font-bold text-white transition-colors"
-          >
-            <WhatsAppIcon className="h-5 w-5" />
-            {siteConfig.ctaLabel}
-          </a>
-        ) : null}
+        <a
+          href={cotizarHref}
+          {...(waCotizarHref
+            ? { target: "_blank", rel: "noopener noreferrer" }
+            : {})}
+          data-track={waCotizarHref ? "whatsapp_click" : "cta_click"}
+          data-location="navbar-movil-cotizar"
+          data-cta="cotizar"
+          className="bg-primary hover:bg-primary/90 mt-1 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md px-6 py-3 text-center font-bold text-white transition-colors"
+        >
+          <WhatsAppIcon className="h-5 w-5" />
+          {siteConfig.ctaLabel}
+        </a>
       </div>
 
       <NavbarMenuClose />
