@@ -19,8 +19,8 @@ afterEach(() => {
 });
 
 describe("siteUrl", () => {
-  it("usa el fallback del dominio de Vercel", () => {
-    expect(siteUrl).toBe("https://vetlinenutrition.vercel.app");
+  it("usa el canónico vetline-nutrition.com por defecto", () => {
+    expect(siteUrl).toBe("https://vetline-nutrition.com");
   });
 });
 

@@ -1,14 +1,16 @@
 import type { SocialLink } from "@/types";
 
+export const CANONICAL_SITE_URL = "https://vetline-nutrition.com";
+
 function resolveSiteUrl(): string {
   const url = process.env.NEXT_PUBLIC_SITE_URL;
   if (url) return url.replace(/\/$/, "");
   if (process.env.NODE_ENV === "production") {
-    throw new Error(
-      "NEXT_PUBLIC_SITE_URL no está definida. Fija https://vetline-nutrition.com en Vercel → Settings → Environment Variables (Production) y redespliega. Ver docs/architecture.md.",
+    console.warn(
+      "NEXT_PUBLIC_SITE_URL no está definida. Usando canónico https://vetline-nutrition.com. Fíjala en Vercel → Settings → Environment Variables (Production) para evitar esta advertencia.",
     );
   }
-  return "https://vetlinenutrition.vercel.app";
+  return CANONICAL_SITE_URL;
 }
 
 const siteUrl = resolveSiteUrl();
