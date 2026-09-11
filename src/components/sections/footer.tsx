@@ -9,10 +9,11 @@ import { primaryButtonClasses } from "@/components/ui/buttons";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import SocialLinks from "@/components/ui/social-links";
 import Link from "next/link";
-import { whatsappUrl } from "@/lib/site";
+import { contactHref, whatsappUrl, CONTACT_EMAIL } from "@/lib/site";
 
 export default function Footer() {
   const waHref = whatsappUrl();
+  const ctaHref = contactHref();
 
   return (
     <footer id="contacto" className="bg-secondary scroll-mt-16 text-white">
@@ -21,19 +22,28 @@ export default function Footer() {
           {footerCta.title}
         </h2>
         <p className="max-w-xl text-gray-200">{footerContent.intro}</p>
-        {waHref && (
+        <a
+          href={ctaHref}
+          {...(waHref ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+          data-track={waHref ? "whatsapp_click" : "cta_click"}
+          data-location="footer"
+          data-cta="whatsapp"
+          className={primaryButtonClasses + " mt-2"}
+        >
+          <span className="flex items-center gap-2">
+            <WhatsAppIcon className="h-5 w-5" />
+            {footerContent.whatsappCta}
+          </span>
+        </a>
+        {!waHref && (
           <a
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-track="whatsapp_click"
+            href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Cotización Nutravit ADE3 Plus")}`}
+            data-track="cta_click"
             data-location="footer"
-            className={primaryButtonClasses + " mt-2"}
+            data-cta="email-fallback"
+            className="inline-flex min-h-[44px] items-center text-sm text-gray-200 underline underline-offset-4 hover:text-white"
           >
-            <span className="flex items-center gap-2">
-              <WhatsAppIcon className="h-5 w-5" />
-              {footerContent.whatsappCta}
-            </span>
+            O escríbenos a {CONTACT_EMAIL}
           </a>
         )}
         <div className="mt-2 flex flex-col items-center gap-3">

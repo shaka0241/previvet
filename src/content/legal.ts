@@ -29,7 +29,7 @@ export const privacyPolicy: LegalDoc = {
       heading: "2. Datos que tratamos",
       paragraphs: [
         "Datos de contacto y solicitud que usted nos envía por WhatsApp o correo electrónico: nombre, teléfono, correo y datos de su producción (especie, número de animales, ubicación de la finca) necesarios para preparar una cotización.",
-        "Datos analíticos de navegación: páginas visitadas, clics en botones de contacto, dirección IP y un identificador seudónimo, recolectados con PostHog para entender el uso del sitio. No recolectamos datos mediante formularios web: este sitio no tiene formularios.",
+        "Datos analíticos de navegación (solo si acepta la analítica en el banner): páginas visitadas, clics en botones de contacto, dirección IP y un identificador seudónimo, recolectados con PostHog para entender el uso del sitio. Sin su aceptación no se activa ningún rastreo. No recolectamos datos mediante formularios web: este sitio no tiene formularios.",
         "No solicitamos ni tratamos datos sensibles ni datos de menores de edad. Por favor no los envíe por estos canales.",
       ],
     },
@@ -100,8 +100,9 @@ export const cookiePolicy: LegalDoc = {
     {
       heading: "3. Cómo gestionarlas",
       paragraphs: [
-        "Puede borrar las cookies y el almacenamiento local desde la configuración de su navegador, navegar en modo privado, o usar extensiones de bloqueo de rastreadores.",
-        "Si desea que eliminemos el identificador analítico asociado a usted, escríbanos a vetlinenutrition@gmail.com.",
+        "Este sitio solo activa PostHog si usted pulsa «Aceptar analítica» en el banner de cookies. Sin esa aceptación no se crea ningún identificador ni se envía nada a PostHog (opt-out por defecto).",
+        "Puede cambiar de opinión en cualquier momento: borre el almacenamiento local del navegador (clave vetline-analytics-consent) y recargue para volver a ver el banner, o escríbanos a vetlinenutrition@gmail.com para que eliminemos el identificador analítico asociado a usted.",
+        "También puede borrar las cookies y el almacenamiento local desde la configuración de su navegador, navegar en modo privado, o usar extensiones de bloqueo de rastreadores.",
       ],
     },
   ],

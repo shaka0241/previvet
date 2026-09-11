@@ -1,9 +1,12 @@
 import { afterEach, describe, expect, it } from "vitest";
 import siteUrl, {
   CONTACT_EMAIL,
+  CONTACT_FALLBACK_HREF,
   INSTAGRAM_URL,
   SOCIAL_LINKS,
   TIKTOK_URL,
+  contactHref,
+  hasWhatsappNumber,
   whatsappUrl,
 } from "./site";
 
@@ -16,8 +19,8 @@ afterEach(() => {
 });
 
 describe("siteUrl", () => {
-  it("usa el fallback del dominio de Vercel", () => {
-    expect(siteUrl).toBe("https://vetlinenutrition.vercel.app");
+  it("usa el canónico vetline-nutrition.com por defecto", () => {
+    expect(siteUrl).toBe("https://vetline-nutrition.com");
   });
 });
 
@@ -33,6 +36,20 @@ describe("whatsappUrl", () => {
     expect(url).toBe(
       "https://wa.me/573001234567?text=Hola%2C%20quiero%20cotizar",
     );
+  });
+});
+
+describe("fallback de contacto (nunca ocultar CTA)", () => {
+  it("contactHref cae a /#contacto si no hay número", () => {
+    delete process.env[ENV_KEY];
+    expect(contactHref()).toBe(CONTACT_FALLBACK_HREF);
+    expect(hasWhatsappNumber()).toBe(false);
+  });
+
+  it("contactHref devuelve wa.me si hay número", () => {
+    process.env[ENV_KEY] = "573001234567";
+    expect(hasWhatsappNumber()).toBe(true);
+    expect(contactHref("Hola")).toBe("https://wa.me/573001234567?text=Hola");
   });
 });
 

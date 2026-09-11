@@ -1,7 +1,9 @@
 import posthog from "posthog-js";
+import { canTrack } from "./consent";
 
 function safeCapture(event: string, properties?: Record<string, unknown>) {
   try {
+    if (!canTrack() || !posthog.__loaded) return;
     posthog.capture(event, properties);
   } catch {
     // Analytics nunca debe romper la conversión
