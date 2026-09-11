@@ -49,9 +49,7 @@ describe("fallback de contacto (nunca ocultar CTA)", () => {
   it("contactHref devuelve wa.me si hay número", () => {
     process.env[ENV_KEY] = "573001234567";
     expect(hasWhatsappNumber()).toBe(true);
-    expect(contactHref("Hola")).toBe(
-      "https://wa.me/573001234567?text=Hola",
-    );
+    expect(contactHref("Hola")).toBe("https://wa.me/573001234567?text=Hola");
   });
 });
 

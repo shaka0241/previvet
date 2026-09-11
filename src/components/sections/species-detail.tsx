@@ -1,11 +1,7 @@
 import Link from "next/link";
 import SectionHeading from "@/components/ui/section-heading";
 import { WhatsAppIcon } from "@/components/ui/icons";
-import {
-  contactHref,
-  whatsappUrl,
-  WHATSAPP_COTIZAR_MESSAGE,
-} from "@/lib/site";
+import { contactHref, whatsappUrl, WHATSAPP_COTIZAR_MESSAGE } from "@/lib/site";
 import type { SpeciesTab } from "@/types";
 
 export default function SpeciesDetail({ tab }: { tab: SpeciesTab }) {

@@ -9,8 +9,7 @@ try {
   if (typeof window !== "undefined") {
     window.addEventListener(CONSENT_EVENT, (e) => {
       try {
-        if ((e as CustomEvent).detail === "accepted")
-          initPostHogIfConsented();
+        if ((e as CustomEvent).detail === "accepted") initPostHogIfConsented();
       } catch {
         // no-op
       }

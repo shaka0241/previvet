@@ -21,9 +21,7 @@ export function setConsent(value: "accepted" | "rejected"): void {
     // storage lleno/bloqueado: el banner volverá a mostrarse, no rompe nada
   }
   try {
-    window.dispatchEvent(
-      new CustomEvent(CONSENT_EVENT, { detail: value }),
-    );
+    window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: value }));
   } catch {
     // no-op
   }
